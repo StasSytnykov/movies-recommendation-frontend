@@ -16,7 +16,7 @@ import { AppContext } from "./context";
 
 function App() {
   const { locale } = useContext(AppContext);
-  const httpLink = new HttpLink({ uri: `${window.location.origin}/api` });
+  const httpLink = new HttpLink({ uri: 'https://movies-recommendation-api.onrender.com/' });
 
   const localeMiddleware = new ApolloLink((operation, forward) => {
     const customHeaders = operation.getContext().hasOwnProperty("headers")
