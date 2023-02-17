@@ -10,7 +10,6 @@ import { styled } from "@mui/material/styles";
 import InsertLinkIcon from "@mui/icons-material/InsertLink";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 import { notify } from "../../utils/notify";
 
