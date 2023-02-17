@@ -41,9 +41,7 @@ interface Props {
 }
 
 export const ConfirmModal = ({ open, onCloseModal, url }: Props) => {
-  const [copied, setCopied] = useState(false);
   const intl = useIntl();
-  console.log(copied);
   return (
     <Modal
       open={open}
@@ -88,7 +86,7 @@ export const ConfirmModal = ({ open, onCloseModal, url }: Props) => {
             <InsertLinkIcon color={"primary"} />
           </IconButton>
           <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-          <CopyToClipboard text={url} onCopy={() => setCopied(true)}>
+          <CopyToClipboard text={url}>
             <IconButton
               onClick={() =>
                 notify(

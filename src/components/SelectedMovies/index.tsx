@@ -2,7 +2,7 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import { MovieCardSelected } from "../index";
 import Grid from "@mui/material/Unstable_Grid2";
-import { IMovie } from "../../pages/Home";
+import { IMovie } from "../MoviesSection";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import { ConfirmFilmInput } from "../ConfirmFilmInput";

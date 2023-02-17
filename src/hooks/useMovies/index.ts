@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { useIntl } from "react-intl";
-import { IMovie } from "../../pages/Home";
+import { IMovie } from "../../components/MoviesSection";
 import { notify } from "../../utils/notify";
 
 export const MAX_SELECTED_MOVIES = 20;

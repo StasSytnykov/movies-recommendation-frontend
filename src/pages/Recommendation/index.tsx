@@ -5,7 +5,7 @@ import { useQuery } from "@apollo/client";
 import { MOVIES_BY_IDS } from "./queries";
 import Grid from "@mui/material/Unstable_Grid2";
 import { MovieCard } from "../../components";
-import { IMovie, StyledGrid } from "../Home";
+import { IMovie, StyledGrid } from "../../components/MoviesSection";
 import { AppContext } from "../../context";
 
 export const Recommendation = () => {
