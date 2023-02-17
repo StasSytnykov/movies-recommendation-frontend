@@ -4,12 +4,12 @@ import { getFromStorage, STORAGE_KEY } from "../utils/localStorage";
 
 type Locales = {
   ENGLISH: "en-us";
-  UKRANIAN: "uk";
+  UKRAINIAN: "uk";
 };
 
 export const LOCALES: Locales = {
   ENGLISH: "en-us",
-  UKRANIAN: "uk",
+  UKRAINIAN: "uk",
 };
 
 export type Tlocale = "en-us" | "uk";

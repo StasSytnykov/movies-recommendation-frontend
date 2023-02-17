@@ -60,7 +60,7 @@ export const Navigation = () => {
 
   return (
     <Box>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ height: "60px" }}>
         <Toolbar>
           <Hidden only={["lg", "xl", "md"]}>
             <IconButton
@@ -90,15 +90,15 @@ export const Navigation = () => {
           <Box>
             <Button
               disabled={locale === LOCALES.ENGLISH}
-              sx={{ my: 2, opacity: locale === LOCALES.ENGLISH ? 1 : 0.5 }}
+              sx={{ opacity: locale === LOCALES.ENGLISH ? 1 : 0.5 }}
               onClick={() => setLanguage(LOCALES.ENGLISH)}
             >
               <US title="United States" />
             </Button>
             <Button
-              disabled={locale === LOCALES.UKRANIAN}
-              sx={{ my: 2, opacity: locale === LOCALES.UKRANIAN ? 1 : 0.5 }}
-              onClick={() => setLanguage(LOCALES.UKRANIAN)}
+              disabled={locale === LOCALES.UKRAINIAN}
+              sx={{ opacity: locale === LOCALES.UKRAINIAN ? 1 : 0.5 }}
+              onClick={() => setLanguage(LOCALES.UKRAINIAN)}
             >
               <UA title="Ukraine" />
             </Button>
@@ -106,7 +106,7 @@ export const Navigation = () => {
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Link to={"settings"} component={RouterLink}>
-              <Button sx={{ my: 2, color: "white", display: "block" }}>
+              <Button sx={{ color: "white", display: "block" }}>
                 <FormattedMessage id="headerTab.settings" />
               </Button>
             </Link>

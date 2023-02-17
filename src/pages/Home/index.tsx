@@ -4,6 +4,7 @@ import Paper from "@mui/material/Paper";
 import { useMovies } from "../../hooks";
 import { SelectedMoviesSection } from "../../components";
 import { MoviesSection } from "../../components/MoviesSection";
+import { SearchBar } from "../../components/SearchBar";
 
 export const Home = () => {
   const { selectMovie, deleteMovie, selectedMovies } = useMovies();
@@ -12,7 +13,9 @@ export const Home = () => {
     <Box sx={{ flexGrow: 1 }} mt={4}>
       <Grid container spacing={2}>
         <Grid xs={12}>
-          <Paper>Filters section</Paper>
+          <Paper sx={{ p: 1 }}>
+            <SearchBar />
+          </Paper>
         </Grid>
         <Grid xs={12} md={8}>
           <MoviesSection selectMovie={selectMovie} />

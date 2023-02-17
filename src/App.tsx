@@ -10,8 +10,6 @@ import {
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { AppContextProvider } from "./context";
-import { ProviderWrapper } from "./components/Provider";
 import { Navigation } from "./components";
 import { useContext } from "react";
 import { AppContext } from "./context";
@@ -19,7 +17,10 @@ import { AppContext } from "./context";
 function App() {
   const { locale } = useContext(AppContext);
   const httpLink = new HttpLink({
-    uri: process.env.NODE_ENV === 'development' ? 'http://localhost:4000/graphql' : process.env.REACT_APP_DEFAULT_URL,
+    uri:
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:4000/graphql"
+        : process.env.REACT_APP_DEFAULT_URL,
   });
 
   const localeMiddleware = new ApolloLink((operation, forward) => {
@@ -42,29 +43,25 @@ function App() {
   });
 
   return (
-    <AppContextProvider>
-      <ProviderWrapper>
-        <ApolloProvider client={client}>
-          <>
-            <CssBaseline />
-            <Navigation />
+    <ApolloProvider client={client}>
+      <>
+        <CssBaseline />
+        <Navigation />
 
-            <Box
-              sx={{
-                backgroundColor: (theme) => theme.palette.grey[100],
-                height: "calc(100vh - 68.5px)",
-                overflow: "auto",
-              }}
-            >
-              <Container maxWidth={"xl"}>
-                <Outlet />
-              </Container>
-            </Box>
-            <ToastContainer />
-          </>
-        </ApolloProvider>
-      </ProviderWrapper>
-    </AppContextProvider>
+        <Box
+          sx={{
+            backgroundColor: (theme) => theme.palette.grey[100],
+            height: "calc(100vh - 68.5px)",
+            overflow: "auto",
+          }}
+        >
+          <Container maxWidth={"xl"}>
+            <Outlet />
+          </Container>
+        </Box>
+        <ToastContainer />
+      </>
+    </ApolloProvider>
   );
 }
 

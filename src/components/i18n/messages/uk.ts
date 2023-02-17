@@ -1,7 +1,7 @@
 import { LOCALES } from "../../../context/defaultContext";
 
 export const uk = {
-  [LOCALES.UKRANIAN]: {
+  [LOCALES.UKRAINIAN]: {
     cardMenu: {
       delete: "Видалити",
       select: "Обрати",
