@@ -1,4 +1,4 @@
-import { CssBaseline, Container, Box } from "@mui/material";
+import { Container, Box } from "@mui/material";
 import {
   ApolloClient,
   InMemoryCache,
@@ -42,16 +42,12 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <>
-        <CssBaseline />
-        <Navigation />
-
         <Box
           sx={{
             backgroundColor: (theme) => theme.palette.grey[100],
-            height: "calc(100vh - 68.5px)",
-            overflow: "auto",
           }}
         >
+          <Navigation />
           <Container maxWidth={"xl"}>
             <Outlet />
           </Container>

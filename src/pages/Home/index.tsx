@@ -10,7 +10,7 @@ export const Home = () => {
   const { selectMovie, deleteMovie, selectedMovies } = useMovies();
 
   return (
-    <Box sx={{ flexGrow: 1 }} mt={4}>
+    <Box sx={{ flexGrow: 1, paddingTop: 4 }}>
       <Grid container spacing={2}>
         <Grid xs={12}>
           <Paper sx={{ p: 1 }}>

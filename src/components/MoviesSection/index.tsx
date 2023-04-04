@@ -35,7 +35,7 @@ export const MoviesSection = ({ selectMovie }: Props) => {
   });
 
   if (error) {
-    return <div>Error</div>;
+    return <div>Page not found</div>;
   }
 
   return (

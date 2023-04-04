@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
+import { CssBaseline } from "@mui/material";
 import App from "./App";
 import { Settings, Home, Recommendation } from "./pages";
 import { AppContextProvider } from "./context";
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
     element: (
       <AppContextProvider>
         <ProviderWrapper>
+          <CssBaseline />
           <App />
         </ProviderWrapper>
       </AppContextProvider>

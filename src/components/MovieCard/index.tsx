@@ -9,9 +9,23 @@ import { useIntl } from "react-intl";
 
 const StyledCard = styled(Card)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
-    minWidth: 250,
+    minWidth: 300,
+    display: "flex",
   },
 }));
+
+const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    width: 86,
+    height: 128,
+  },
+  [theme.breakpoints.up("sm")]: {
+    width: "100%",
+    height: "100%",
+    maxHeight: 330,
+    minHeight: 330,
+  },
+})) as typeof CardMedia;
 
 export interface Props {
   movie: IMovie;
@@ -29,15 +43,14 @@ export const MovieCard = ({ movie, onCardSelect = () => {} }: Props) => {
         onClickButton={() => onCardSelect(movie)}
       />
 
-      <CardMedia
+      <StyledCardMedia
         component="img"
-        sx={{ width: "100%", height: "100%", maxHeight: 330, minHeight: 330 }}
         image={movie.posterPath}
         alt={movie.title}
       />
       <CardContent>
         <Typography
-          variant="h6"
+          variant="body1"
           component="h3"
           sx={{ whiteSpace: "nowrap", overflow: "hidden" }}
         >
