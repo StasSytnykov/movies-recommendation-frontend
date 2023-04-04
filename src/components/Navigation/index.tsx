@@ -7,21 +7,15 @@ import {
   IconButton,
   Typography,
   Button,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
   Hidden,
   Link,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import SettingsIcon from "@mui/icons-material/Settings";
 import { US, UA } from "country-flag-icons/react/3x2";
 import { Link as RouterLink } from "react-router-dom";
 import { AppContext } from "../../context";
 import { Tlocale, LOCALES } from "../../context/defaultContext";
+import { NavDrawer } from "./NavDrawer";
 
 export const Navigation = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -32,30 +26,6 @@ export const Navigation = () => {
       contextDispatch({ type: "setLocale", locale });
     },
     [contextDispatch]
-  );
-
-  const list = () => (
-    <Box sx={{ width: 250 }} role="presentation">
-      <List>
-        <ListItem>
-          <Link
-            to={"settings"}
-            component={RouterLink}
-            sx={{ textDecoration: "none", textTransform: "upperCase" }}
-          >
-            <ListItemButton
-              onClick={() => setIsDrawerOpen(false)}
-              sx={{ width: 218 }}
-            >
-              <ListItemIcon>
-                <SettingsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Settings" />
-            </ListItemButton>
-          </Link>
-        </ListItem>
-      </List>
-    </Box>
   );
 
   return (
@@ -113,13 +83,10 @@ export const Navigation = () => {
           </Box>
         </Toolbar>
       </AppBar>
-      <Drawer
-        anchor="left"
-        open={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
-      >
-        {list()}
-      </Drawer>
+      <NavDrawer
+        isDrawerOpen={isDrawerOpen}
+        setIsDrawerOpen={setIsDrawerOpen}
+      />
     </Box>
   );
 };
