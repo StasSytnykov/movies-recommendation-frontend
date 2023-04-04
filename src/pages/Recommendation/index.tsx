@@ -54,7 +54,7 @@ export const Recommendation = () => {
           <StyledGrid container spacing={2}>
             {data.moviesByIds.map((movie: IMovie) => (
               <Grid key={movie.id} sm={4} md={3} lg={2}>
-                <MovieCard movie={movie} />
+                <MovieCard movie={movie} pageType="recommendation" />
               </Grid>
             ))}
           </StyledGrid>

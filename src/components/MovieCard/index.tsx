@@ -9,15 +9,16 @@ import { useIntl } from "react-intl";
 
 const StyledCard = styled(Card)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
-    minWidth: 300,
     display: "flex",
+  },
+  [theme.breakpoints.up("sm")]: {
+    maxHeight: 420,
   },
 }));
 
 const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
-    width: 86,
-    height: 128,
+    width: 100,
   },
   [theme.breakpoints.up("sm")]: {
     width: "100%",
@@ -27,21 +28,36 @@ const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
   },
 })) as typeof CardMedia;
 
+const StyledTypography = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.up("sm")]: {
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+  },
+})) as typeof Typography;
+
 export interface Props {
   movie: IMovie;
   onCardSelect?: (movie: IMovie) => void;
+  pageType?: string;
 }
 
-export const MovieCard = ({ movie, onCardSelect = () => {} }: Props) => {
+export const MovieCard = ({
+  movie,
+  onCardSelect = () => {},
+  pageType,
+}: Props) => {
   const intl = useIntl();
   return (
-    <StyledCard sx={{ maxWidth: 250, maxHeight: 420, position: "relative" }}>
-      <OptionButton
-        titleButton={intl.formatMessage({
-          id: "cardMenu.select",
-        })}
-        onClickButton={() => onCardSelect(movie)}
-      />
+    <StyledCard sx={{ position: "relative" }}>
+      {pageType === "recommendation" ? null : (
+        <OptionButton
+          titleButton={intl.formatMessage({
+            id: "cardMenu.select",
+          })}
+          onClickButton={() => onCardSelect(movie)}
+        />
+      )}
 
       <StyledCardMedia
         component="img"
@@ -49,13 +65,9 @@ export const MovieCard = ({ movie, onCardSelect = () => {} }: Props) => {
         alt={movie.title}
       />
       <CardContent>
-        <Typography
-          variant="body1"
-          component="h3"
-          sx={{ whiteSpace: "nowrap", overflow: "hidden" }}
-        >
+        <StyledTypography variant="h6" component="h3">
           {movie.title}
-        </Typography>
+        </StyledTypography>
         <Typography variant="body2" component="p">
           {movie.releaseDate}
         </Typography>

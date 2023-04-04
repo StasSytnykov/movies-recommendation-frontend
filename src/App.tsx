@@ -45,6 +45,8 @@ function App() {
         <Box
           sx={{
             backgroundColor: (theme) => theme.palette.grey[100],
+            height: "100vh",
+            overflow: "auto",
           }}
         >
           <Navigation />

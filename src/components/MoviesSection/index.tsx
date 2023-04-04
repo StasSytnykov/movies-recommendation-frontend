@@ -47,7 +47,7 @@ export const MoviesSection = ({ selectMovie }: Props) => {
           <Paper sx={{ mt: 1 }}>
             <StyledGrid container spacing={2} sx={{ pt: 0 }}>
               {data.movies.results.map((movie: IMovie) => (
-                <Grid key={movie.id} sm={4} md={4} lg={3}>
+                <Grid key={movie.id} sm={4} lg={3} sx={{ width: "100%" }}>
                   <MovieCard movie={movie} onCardSelect={selectMovie} />
                 </Grid>
               ))}
