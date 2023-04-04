@@ -1,5 +1,6 @@
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { Box, TextField, Button } from "@mui/material";
+import { useIntl } from "react-intl";
 
 interface IFormInput {
   searchText: string;
@@ -10,6 +11,7 @@ export const SearchBar = () => {
       searchText: "",
     },
   });
+  const intl = useIntl();
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data);
@@ -25,7 +27,9 @@ export const SearchBar = () => {
             <TextField
               {...field}
               fullWidth
-              label="Search movies"
+              label={intl.formatMessage({
+                id: "searchBar.inputLabel",
+              })}
               size="small"
             />
           )}
@@ -35,7 +39,9 @@ export const SearchBar = () => {
           variant="outlined"
           sx={{ ml: "20px", width: "150px" }}
         >
-          Search
+          {intl.formatMessage({
+            id: "searchBar.inputBtn",
+          })}
         </Button>
       </Box>
     </form>

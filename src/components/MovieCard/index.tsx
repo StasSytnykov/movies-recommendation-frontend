@@ -3,7 +3,7 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { IMovie } from "../MoviesSection";
-import { OptionButton } from "../OptionButton/OptionButton";
+import { OptionButton } from "../OptionButton";
 import { styled } from "@mui/material/styles";
 import { useIntl } from "react-intl";
 

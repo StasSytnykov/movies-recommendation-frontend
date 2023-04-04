@@ -17,10 +17,7 @@ import { AppContext } from "./context";
 function App() {
   const { locale } = useContext(AppContext);
   const httpLink = new HttpLink({
-    uri:
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:4000/graphql"
-        : process.env.REACT_APP_DEFAULT_URL,
+    uri: process.env.REACT_APP_DEFAULT_URL,
   });
 
   const localeMiddleware = new ApolloLink((operation, forward) => {

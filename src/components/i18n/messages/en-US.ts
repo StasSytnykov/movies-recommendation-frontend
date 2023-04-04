@@ -7,6 +7,7 @@ export const en = {
       select: "Select",
     },
     headerTab: { settings: "Settings", recommend: "Movies recommendation" },
+    searchBar: { inputLabel: "Search movies", inputBtn: "Search" },
     input: { placeholder: "Name your movies list", message: "Required" },
     modal: {
       title: "Your link for sharing movies",

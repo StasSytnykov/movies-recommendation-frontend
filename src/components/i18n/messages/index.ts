@@ -1,4 +1,4 @@
-import { uk } from "./uk";
+import { ua } from "./uk";
 import { en } from "./en-US";
 
-export const messages = { ...uk, ...en };
+export const messages = { ...ua, ...en };

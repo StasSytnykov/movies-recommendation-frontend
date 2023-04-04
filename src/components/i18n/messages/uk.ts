@@ -1,12 +1,13 @@
 import { LOCALES } from "../../../context/defaultContext";
 
-export const uk = {
+export const ua = {
   [LOCALES.UKRAINIAN]: {
     cardMenu: {
       delete: "Видалити",
       select: "Обрати",
     },
     headerTab: { settings: "Налаштування", recommend: "Рекомендовані фільми" },
+    searchBar: { inputLabel: "Пошук фільмів", inputBtn: "Пошук" },
     input: { placeholder: "Назви свій список фільмів", message: "Обов'язкове" },
     modal: {
       title: "Твоє посилання щоб поділитись фільмами",

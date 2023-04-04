@@ -1,5 +1,5 @@
 import { Box, Typography, CardContent, Card, CardMedia } from "@mui/material";
-import { OptionButton } from "../OptionButton/OptionButton";
+import { OptionButton } from "../OptionButton";
 import { IMovie } from "../MoviesSection";
 import { useIntl } from "react-intl";
 
