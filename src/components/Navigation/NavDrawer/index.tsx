@@ -1,16 +1,6 @@
-import {
-  Box,
-  Drawer,
-  Link,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
+import { Box, Drawer, List, ListItem } from "@mui/material";
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
-import SettingsIcon from "@mui/icons-material/Settings";
+import { LanguageButtons } from "../LanguageButtons";
 
 interface Props {
   isDrawerOpen: boolean;
@@ -25,22 +15,8 @@ export const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }: Props) => (
   >
     <Box sx={{ width: 250 }} role="presentation">
       <List>
-        <ListItem>
-          <Link
-            to={"settings"}
-            component={RouterLink}
-            sx={{ textDecoration: "none", textTransform: "upperCase" }}
-          >
-            <ListItemButton
-              onClick={() => setIsDrawerOpen(false)}
-              sx={{ width: 218 }}
-            >
-              <ListItemIcon>
-                <SettingsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Settings" />
-            </ListItemButton>
-          </Link>
+        <ListItem sx={{ display: "flex", justifyContent: "center" }}>
+          <LanguageButtons />
         </ListItem>
       </List>
     </Box>

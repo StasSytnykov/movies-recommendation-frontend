@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from "react";
+import React, { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import {
   Box,
@@ -6,33 +6,22 @@ import {
   Toolbar,
   IconButton,
   Typography,
-  Button,
   Hidden,
   Link,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { US, UA } from "country-flag-icons/react/3x2";
 import { Link as RouterLink } from "react-router-dom";
-import { AppContext } from "../../context";
-import { Tlocale, LOCALES } from "../../context/defaultContext";
 import { NavDrawer } from "./NavDrawer";
+import { LanguageButtons } from "./LanguageButtons";
 
 export const Navigation = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { locale, contextDispatch } = useContext(AppContext);
-
-  const setLanguage = useCallback(
-    (locale: Tlocale) => {
-      contextDispatch({ type: "setLocale", locale });
-    },
-    [contextDispatch]
-  );
 
   return (
     <Box>
       <AppBar position="static" sx={{ height: "60px" }}>
         <Toolbar>
-          <Hidden only={["lg", "xl", "md"]}>
+          <Hidden only={["lg", "xl", "md", "sm"]}>
             <IconButton
               onClick={() => setIsDrawerOpen(true)}
               size="large"
@@ -57,30 +46,9 @@ export const Navigation = () => {
             </Link>
           </Box>
 
-          <Box>
-            <Button
-              disabled={locale === LOCALES.ENGLISH}
-              sx={{ opacity: locale === LOCALES.ENGLISH ? 1 : 0.5 }}
-              onClick={() => setLanguage(LOCALES.ENGLISH)}
-            >
-              <US title="United States" />
-            </Button>
-            <Button
-              disabled={locale === LOCALES.UKRAINIAN}
-              sx={{ opacity: locale === LOCALES.UKRAINIAN ? 1 : 0.5 }}
-              onClick={() => setLanguage(LOCALES.UKRAINIAN)}
-            >
-              <UA title="Ukraine" />
-            </Button>
-          </Box>
-
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Link to={"settings"} component={RouterLink}>
-              <Button sx={{ color: "white", display: "block" }}>
-                <FormattedMessage id="headerTab.settings" />
-              </Button>
-            </Link>
-          </Box>
+          <Hidden only={["xs"]}>
+            <LanguageButtons />
+          </Hidden>
         </Toolbar>
       </AppBar>
       <NavDrawer
