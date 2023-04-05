@@ -21,6 +21,11 @@ export interface IMovie {
   posterPath?: string;
   releaseDate: string;
   title: string;
+  rating: number;
+  genres: {
+    id: number;
+    name: string;
+  }[];
 }
 
 interface Props {

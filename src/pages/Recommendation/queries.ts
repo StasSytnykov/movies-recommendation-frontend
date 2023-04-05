@@ -7,6 +7,7 @@ export const MOVIES_BY_IDS = gql`
       releaseDate
       posterPath
       id
+      rating
       genres {
         id
         name

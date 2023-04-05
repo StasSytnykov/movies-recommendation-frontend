@@ -12,6 +12,7 @@ describe("useMovies hook", () => {
         name: "test",
       },
     ],
+    rating: 1,
   };
 
   it("should select movie", () => {

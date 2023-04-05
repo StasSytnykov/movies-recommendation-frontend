@@ -22,7 +22,7 @@ export const OptionButton = ({ titleButton, onClickButton }: Props) => {
   };
 
   return (
-    <Box sx={{ position: "absolute", left: 5, top: 5 }}>
+    <Box sx={{ position: "absolute", left: 5, top: 5, zIndex: 100 }}>
       <IconButton
         aria-label="more"
         id="long-button"
