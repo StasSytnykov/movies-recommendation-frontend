@@ -42,11 +42,7 @@ export interface Props {
   pageType?: string;
 }
 
-export const MovieCard = ({
-  movie,
-  onCardSelect = () => {},
-  pageType,
-}: Props) => {
+export const MovieCard = ({ movie, onCardSelect, pageType }: Props) => {
   const intl = useIntl();
   return (
     <StyledCard sx={{ position: "relative" }}>
@@ -55,7 +51,7 @@ export const MovieCard = ({
           titleButton={intl.formatMessage({
             id: "cardMenu.select",
           })}
-          onClickButton={() => onCardSelect(movie)}
+          onClickButton={() => onCardSelect && onCardSelect(movie)}
         />
       )}
 

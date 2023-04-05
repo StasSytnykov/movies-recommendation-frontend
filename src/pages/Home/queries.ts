@@ -8,6 +8,7 @@ export const MOVIES_QUERY = gql`
         id
         releaseDate
         title
+        rating
       }
       totalPages
       totalResults
