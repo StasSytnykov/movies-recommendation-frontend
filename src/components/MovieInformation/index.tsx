@@ -22,10 +22,33 @@ interface Props {
 }
 
 const StyledCard = styled(Card)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
   [theme.breakpoints.up("sm")]: {
-    display: "flex",
+    flexDirection: "row",
+    alignItems: "start",
   },
 }));
+
+const StyledTitle = styled(Typography)(({ theme }) => ({
+  fontWeight: 500,
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1.5rem",
+  },
+})) as typeof Typography;
+
+const StyledDetail = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1rem",
+  },
+})) as typeof Typography;
+
+const StyledOverview = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.down("md")]: {
+    fontSize: "0.80rem",
+  },
+})) as typeof Typography;
 export const MovieInformation = ({ movie, cast }: Props) => {
   return (
     <StyledCard>
@@ -36,21 +59,21 @@ export const MovieInformation = ({ movie, cast }: Props) => {
         sx={{ width: "300px" }}
       />
       <CardContent>
-        <Typography gutterBottom variant="h4" component="div">
+        <StyledTitle gutterBottom variant="h4" component="div">
           {movie.title}
-        </Typography>
-        <Typography gutterBottom variant="h6" component="div">
+        </StyledTitle>
+        <StyledDetail gutterBottom variant="h6" component="div">
           {movie.releaseDate}
-        </Typography>
-        <Typography gutterBottom variant="h6" component="div">
+        </StyledDetail>
+        <StyledDetail gutterBottom variant="h6" component="div">
           Тривалість: {movie.runtime} хв
-        </Typography>
-        <Typography gutterBottom variant="h6" component="div">
+        </StyledDetail>
+        <StyledDetail gutterBottom variant="h6" component="div">
           Рейтинг: {movie.rating}
-        </Typography>
-        <Typography variant="body1" color="text.secondary">
+        </StyledDetail>
+        <StyledOverview variant="body1" color="text.secondary">
           {movie.overview}
-        </Typography>
+        </StyledOverview>
       </CardContent>
     </StyledCard>
   );
