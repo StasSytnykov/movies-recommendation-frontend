@@ -6,6 +6,13 @@ export const ua = {
       delete: "Видалити",
       select: "Обрати",
     },
+    movieCard: {
+      genres: "Жанри",
+      duration: "Тривалість",
+      time: "хв",
+      rating: "Рейтинг",
+      cast: "Актори",
+    },
     headerTab: { settings: "Налаштування", recommend: "Рекомендовані фільми" },
     searchBar: { inputLabel: "Пошук фільмів", inputBtn: "Пошук" },
     input: { placeholder: "Назви свій список фільмів", message: "Обов'язкове" },

@@ -1,5 +1,6 @@
 import { Card, Typography, CardMedia, CardContent } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { useIntl } from "react-intl";
 
 interface Props {
   movie: {
@@ -42,6 +43,7 @@ const StyledOverview = styled(Typography)(({ theme }) => ({
   },
 })) as typeof Typography;
 export const MovieInformation = ({ movie }: Props) => {
+  const intl = useIntl();
   return (
     <StyledCard>
       <CardMedia
@@ -59,10 +61,19 @@ export const MovieInformation = ({ movie }: Props) => {
           {movie.releaseDate}
         </StyledDetail>
         <StyledDetail gutterBottom variant="h6" component="div">
-          Тривалість: {movie.runtime} хв
+          {intl.formatMessage({
+            id: "movieCard.duration",
+          })}
+          : {movie.runtime}{" "}
+          {intl.formatMessage({
+            id: "movieCard.time",
+          })}
         </StyledDetail>
         <StyledDetail gutterBottom variant="h6" component="div">
-          Рейтинг: {movie.rating.toFixed(1)}
+          {intl.formatMessage({
+            id: "movieCard.rating",
+          })}
+          : {movie.rating.toFixed(1)}
         </StyledDetail>
         <StyledOverview variant="body1" color="text.secondary">
           {movie.overview}

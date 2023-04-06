@@ -5,6 +5,7 @@ import {
   ImageListItemBar,
   Typography,
 } from "@mui/material";
+import { useIntl } from "react-intl";
 
 type Cast = {
   name: string;
@@ -18,6 +19,7 @@ interface Props {
 }
 
 export const CastInfo = ({ cast }: Props) => {
+  const intl = useIntl();
   return (
     <Box>
       <Typography
@@ -25,7 +27,9 @@ export const CastInfo = ({ cast }: Props) => {
         component="div"
         sx={{ textAlign: "center", marginTop: "20px" }}
       >
-        Cast
+        {intl.formatMessage({
+          id: "movieCard.cast",
+        })}
       </Typography>
       <ImageList
         gap={10}

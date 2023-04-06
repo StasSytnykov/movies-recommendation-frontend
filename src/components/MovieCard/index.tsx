@@ -105,7 +105,10 @@ export const MovieCard = ({ movie, onMovieSelect, pageType }: Props) => {
           {pageType === PAGE_TYPE && (
             <Box>
               <Typography variant="subtitle1" component="p">
-                Genres:
+                {intl.formatMessage({
+                  id: "movieCard.genres",
+                })}
+                :
               </Typography>
               <StyledTypography variant="body1" component="p">
                 {normalizedGenres}

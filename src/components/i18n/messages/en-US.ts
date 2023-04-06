@@ -6,6 +6,13 @@ export const en = {
       delete: "Delete",
       select: "Select",
     },
+    movieCard: {
+      genres: "Genres",
+      duration: "Duration",
+      time: "min",
+      rating: "Rating",
+      cast: "Cast",
+    },
     headerTab: { settings: "Settings", recommend: "Movies recommendation" },
     searchBar: { inputLabel: "Search movies", inputBtn: "Search" },
     input: { placeholder: "Name your movies list", message: "Required" },
