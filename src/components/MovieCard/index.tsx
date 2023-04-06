@@ -58,20 +58,19 @@ export const MovieCard = ({ movie, onMovieSelect, pageType }: Props) => {
       .join(", ");
   return (
     <StyledCard sx={{ position: "relative" }}>
+      {pageType === PAGE_TYPE ? null : (
+        <OptionButton
+          titleButton={intl.formatMessage({
+            id: "cardMenu.select",
+          })}
+          onMovieSelect={() => onMovieSelect && onMovieSelect(movie)}
+        />
+      )}
       <Link
-        to={`movie-details/${movie.id}`}
+        to={`movie-details?id=${movie.id}`}
         component={RouterLink}
         sx={{ textDecoration: "none", color: "inherit" }}
       >
-        {pageType === PAGE_TYPE ? null : (
-          <OptionButton
-            titleButton={intl.formatMessage({
-              id: "cardMenu.select",
-            })}
-            onMovieSelect={() => onMovieSelect && onMovieSelect(movie)}
-          />
-        )}
-
         <Box sx={{ position: "relative" }}>
           <StyledCardMedia
             component="img"

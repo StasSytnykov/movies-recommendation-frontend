@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const MOVIE_BY_ID = gql`
+export const MOVIE_DETAILS = gql`
   query ($id: String!) {
     movieById(id: $id) {
       title
@@ -14,6 +14,15 @@ export const MOVIE_BY_ID = gql`
         id
         name
       }
+    }
+    castByMovieId(id: $id) {
+      cast {
+        name
+        id
+        character
+        profilePath
+      }
+      id
     }
   }
 `;
