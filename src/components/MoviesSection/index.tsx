@@ -1,12 +1,13 @@
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
+import CircularProgress from "@mui/material/CircularProgress";
+import { styled } from "@mui/material/styles";
+import { useQuery } from "@apollo/client";
+import { useState } from "react";
 import { MovieCard } from "../MovieCard";
 import { BasicPagination } from "../Pagination/Index";
-import { useQuery } from "@apollo/client";
 import { MOVIES_QUERY } from "../../pages/Home/queries";
-import { useState } from "react";
-import { styled } from "@mui/material/styles";
 
 export const StyledGrid = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
@@ -42,7 +43,15 @@ export const MoviesSection = ({ onMovieSelect }: Props) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       {loading ? (
-        "Loading..."
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <CircularProgress />
+        </Box>
       ) : (
         <>
           <Paper sx={{ mt: 1 }}>

@@ -7,6 +7,8 @@ import Grid from "@mui/material/Unstable_Grid2";
 import { MovieCard } from "../../components";
 import { IMovie, StyledGrid } from "../../components/MoviesSection";
 import { AppContext } from "../../context";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 export const Recommendation = () => {
   const [searchParams] = useSearchParams();
@@ -45,7 +47,15 @@ export const Recommendation = () => {
   return (
     <>
       {loading ? (
-        <div>Loading...</div>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <CircularProgress />
+        </Box>
       ) : (
         <>
           <Typography variant="h3" gutterBottom sx={{ textAlign: "center" }}>
