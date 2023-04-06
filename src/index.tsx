@@ -7,6 +7,7 @@ import App from "./App";
 import { Settings, Home, Recommendation } from "./pages";
 import { AppContextProvider } from "./context";
 import { ProviderWrapper } from "./components/Provider";
+import { MovieDetails } from "./pages/MovieDetails";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "movie-details/:movieId",
+        element: <MovieDetails />,
       },
       {
         path: "settings",
