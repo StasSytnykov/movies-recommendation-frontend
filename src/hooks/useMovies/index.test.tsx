@@ -17,26 +17,26 @@ describe("useMovies hook", () => {
 
   it("should select movie", () => {
     const { result } = renderHook(useMovies);
-    act(() => result.current.selectMovie(basicMovie));
+    act(() => result.current.onMovieSelect(basicMovie));
     expect(result.current.selectedMovies.length).toBe(1);
   });
 
   it("should selected movies id = basicMovie id", () => {
     const { result } = renderHook(useMovies);
-    act(() => result.current.selectMovie(basicMovie));
+    act(() => result.current.onMovieSelect(basicMovie));
     expect(result.current.selectedMovies[0].id).toBe(basicMovie.id);
   });
 
   it("should delete movie", () => {
     const { result } = renderHook(useMovies);
-    act(() => result.current.deleteMovie(1));
+    act(() => result.current.onMovieDelete(1));
     expect(result.current.selectedMovies.length).toBe(0);
   });
 
   it("should select movie only one", () => {
     const { result } = renderHook(useMovies);
-    act(() => result.current.selectMovie(basicMovie));
-    act(() => result.current.selectMovie(basicMovie));
+    act(() => result.current.onMovieSelect(basicMovie));
+    act(() => result.current.onMovieSelect(basicMovie));
     expect(result.current.selectedMovies.length).toBe(1);
   });
 
@@ -44,7 +44,7 @@ describe("useMovies hook", () => {
     const { result } = renderHook(useMovies);
     for (let i = 0; i < MAX_SELECTED_MOVIES; i++) {
       act(() => {
-        result.current.selectMovie({ ...basicMovie, id: i });
+        result.current.onMovieSelect({ ...basicMovie, id: i });
       });
     }
     expect(result.current.selectedMovies.length).toBe(MAX_SELECTED_MOVIES);

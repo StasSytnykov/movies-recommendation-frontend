@@ -19,5 +19,5 @@ const Template: ComponentStory<typeof MovieCard> = (args: Props) => (
 export const Primary = Template.bind({});
 Primary.args = {
   movie: movies[0],
-  onCardSelect: () => {},
+  onMovieSelect: () => {},
 };

@@ -5,10 +5,10 @@ import { useIntl } from "react-intl";
 
 export interface Props {
   movie: IMovie;
-  onDeleteMovie: (id: number) => void;
+  onMovieDelete: (id: number) => void;
 }
 
-export const MovieCardSelected = ({ movie, onDeleteMovie }: Props) => {
+export const MovieCardSelected = ({ movie, onMovieDelete }: Props) => {
   const intl = useIntl();
 
   return (
@@ -17,7 +17,7 @@ export const MovieCardSelected = ({ movie, onDeleteMovie }: Props) => {
         titleButton={intl.formatMessage({
           id: "cardMenu.delete",
         })}
-        onClickButton={() => onDeleteMovie(movie.id)}
+        onMovieDelete={() => onMovieDelete(movie.id)}
       />
       <CardMedia
         component="img"

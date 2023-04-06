@@ -7,7 +7,7 @@ import { MoviesSection } from "../../components/MoviesSection";
 import { SearchBar } from "../../components/SearchBar";
 
 export const Home = () => {
-  const { selectMovie, deleteMovie, selectedMovies } = useMovies();
+  const { onMovieSelect, onMovieDelete, selectedMovies } = useMovies();
 
   return (
     <Box sx={{ flexGrow: 1, paddingTop: 4 }}>
@@ -18,10 +18,10 @@ export const Home = () => {
           </Paper>
         </Grid>
         <Grid xs={12} md={8}>
-          <MoviesSection selectMovie={selectMovie} />
+          <MoviesSection onMovieSelect={onMovieSelect} />
         </Grid>
         <SelectedMoviesSection
-          deleteMovie={deleteMovie}
+          onMovieDelete={onMovieDelete}
           selectedMovies={selectedMovies}
         />
       </Grid>

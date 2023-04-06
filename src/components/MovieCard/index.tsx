@@ -42,11 +42,11 @@ const PAGE_TYPE = "recommendation";
 
 export interface Props {
   movie: IMovie;
-  onCardSelect?: (movie: IMovie) => void;
+  onMovieSelect?: (movie: IMovie) => void;
   pageType?: string;
 }
 
-export const MovieCard = ({ movie, onCardSelect, pageType }: Props) => {
+export const MovieCard = ({ movie, onMovieSelect, pageType }: Props) => {
   const intl = useIntl();
   const normalizedGenres =
     pageType === PAGE_TYPE &&
@@ -61,7 +61,7 @@ export const MovieCard = ({ movie, onCardSelect, pageType }: Props) => {
           titleButton={intl.formatMessage({
             id: "cardMenu.select",
           })}
-          onClickButton={() => onCardSelect && onCardSelect(movie)}
+          onMovieSelect={() => onMovieSelect && onMovieSelect(movie)}
         />
       )}
 

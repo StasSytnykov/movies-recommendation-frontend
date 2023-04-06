@@ -29,10 +29,10 @@ export interface IMovie {
 }
 
 interface Props {
-  selectMovie: (movie: IMovie) => void;
+  onMovieSelect: (movie: IMovie) => void;
 }
 
-export const MoviesSection = ({ selectMovie }: Props) => {
+export const MoviesSection = ({ onMovieSelect }: Props) => {
   const [page, setPage] = useState(1);
 
   const { loading, error, data } = useQuery(MOVIES_QUERY, {
@@ -61,7 +61,7 @@ export const MoviesSection = ({ selectMovie }: Props) => {
               ) : (
                 data.movies.results.map((movie: IMovie) => (
                   <Grid key={movie.id} sm={4} lg={3} sx={{ width: "100%" }}>
-                    <MovieCard movie={movie} onCardSelect={selectMovie} />
+                    <MovieCard movie={movie} onMovieSelect={onMovieSelect} />
                   </Grid>
                 ))
               )}

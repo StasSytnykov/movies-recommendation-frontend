@@ -8,10 +8,15 @@ import React, { useState } from "react";
 
 interface Props {
   titleButton: string;
-  onClickButton: () => void;
+  onMovieSelect?: () => void;
+  onMovieDelete?: () => void;
 }
 
-export const OptionButton = ({ titleButton, onClickButton }: Props) => {
+export const OptionButton = ({
+  titleButton,
+  onMovieSelect,
+  onMovieDelete,
+}: Props) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -55,7 +60,8 @@ export const OptionButton = ({ titleButton, onClickButton }: Props) => {
         <MenuItem
           onClick={() => {
             handleClose();
-            onClickButton();
+            onMovieSelect && onMovieSelect();
+            onMovieDelete && onMovieDelete();
           }}
         >
           {titleButton}

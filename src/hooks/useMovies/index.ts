@@ -9,7 +9,7 @@ export const useMovies = () => {
   const [selectedMovies, setSelectedMovies] = useState<IMovie[]>([]);
   const intl = useIntl();
 
-  const selectMovie = useCallback(
+  const onMovieSelect = useCallback(
     (movie: IMovie) => {
       const isAddedMovie = selectedMovies.find(
         (choseMovie) => choseMovie.id === movie.id
@@ -35,7 +35,7 @@ export const useMovies = () => {
     [selectedMovies, intl]
   );
 
-  const deleteMovie = useCallback(
+  const onMovieDelete = useCallback(
     (id: number) => {
       setSelectedMovies(
         selectedMovies.filter((choseMovie) => choseMovie.id !== id)
@@ -46,7 +46,7 @@ export const useMovies = () => {
 
   return {
     selectedMovies,
-    selectMovie,
-    deleteMovie,
+    onMovieSelect,
+    onMovieDelete,
   };
 };

@@ -24,7 +24,7 @@ const SelectedMovies = styled(Paper)(({ theme }) => ({
 }));
 
 interface Props {
-  deleteMovie: (id: number) => void;
+  onMovieDelete: (id: number) => void;
   selectedMovies: IMovie[];
 }
 
@@ -33,7 +33,7 @@ export interface Values {
 }
 
 export const SelectedMoviesSection = ({
-  deleteMovie,
+  onMovieDelete,
   selectedMovies,
 }: Props) => {
   const [url, setUrl] = useState("");
@@ -62,7 +62,7 @@ export const SelectedMoviesSection = ({
             <Box key={movie.id}>
               <MovieCardSelected
                 movie={movie}
-                onDeleteMovie={() => deleteMovie(movie.id)}
+                onMovieDelete={() => onMovieDelete(movie.id)}
               />
             </Box>
           ))}
