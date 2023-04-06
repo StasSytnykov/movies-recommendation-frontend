@@ -85,7 +85,7 @@ export const MovieCard = ({ movie, onMovieSelect, pageType }: Props) => {
               top: 5,
               right: 5,
             }}
-            label={movie.rating}
+            label={movie.rating.toFixed(1)}
           />
         </Box>
 

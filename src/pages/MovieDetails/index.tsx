@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { MOVIE_DETAILS } from "./queries";
 import { MovieInformation } from "../../components/MovieInformation";
+import { CastInfo } from "../../components/Cast";
 
 export const MovieDetails = () => {
   const [searchParams] = useSearchParams();
@@ -18,7 +19,6 @@ export const MovieDetails = () => {
   }, [searchParams]);
 
   if (error) return <div>Error</div>;
-  console.log(data);
 
   return (
     <>
@@ -26,10 +26,8 @@ export const MovieDetails = () => {
         <div>Loading...</div>
       ) : (
         <Box sx={{ marginTop: "25px" }}>
-          <MovieInformation
-            movie={data.movieById}
-            cast={data.castByMovieId.cast}
-          />
+          <MovieInformation movie={data.movieById} />
+          <CastInfo cast={data.castByMovieId.cast} />
         </Box>
       )}
     </>

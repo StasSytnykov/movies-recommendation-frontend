@@ -1,13 +1,6 @@
 import { Card, Typography, CardMedia, CardContent } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-type Cast = {
-  name: string;
-  id: number;
-  character: string;
-  profilePath: string;
-};
-
 interface Props {
   movie: {
     title: string;
@@ -18,7 +11,6 @@ interface Props {
     runtime: number;
     rating: number;
   };
-  cast: Cast[];
 }
 
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -49,7 +41,7 @@ const StyledOverview = styled(Typography)(({ theme }) => ({
     fontSize: "0.80rem",
   },
 })) as typeof Typography;
-export const MovieInformation = ({ movie, cast }: Props) => {
+export const MovieInformation = ({ movie }: Props) => {
   return (
     <StyledCard>
       <CardMedia
@@ -57,6 +49,7 @@ export const MovieInformation = ({ movie, cast }: Props) => {
         image={movie.posterPath}
         title={movie.title}
         sx={{ width: "300px" }}
+        loading="lazy"
       />
       <CardContent>
         <StyledTitle gutterBottom variant="h4" component="div">
@@ -69,7 +62,7 @@ export const MovieInformation = ({ movie, cast }: Props) => {
           Тривалість: {movie.runtime} хв
         </StyledDetail>
         <StyledDetail gutterBottom variant="h6" component="div">
-          Рейтинг: {movie.rating}
+          Рейтинг: {movie.rating.toFixed(1)}
         </StyledDetail>
         <StyledOverview variant="body1" color="text.secondary">
           {movie.overview}
