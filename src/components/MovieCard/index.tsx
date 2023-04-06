@@ -40,6 +40,12 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
   },
 })) as typeof Typography;
 
+const StyledLink = styled(Link)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    display: "flex",
+  },
+})) as typeof Link;
+
 const PAGE_TYPE = "recommendation";
 
 export interface Props {
@@ -66,7 +72,7 @@ export const MovieCard = ({ movie, onMovieSelect, pageType }: Props) => {
           onMovieSelect={() => onMovieSelect && onMovieSelect(movie)}
         />
       )}
-      <Link
+      <StyledLink
         to={`movie-details?id=${movie.id}`}
         component={RouterLink}
         sx={{ textDecoration: "none", color: "inherit" }}
@@ -107,7 +113,7 @@ export const MovieCard = ({ movie, onMovieSelect, pageType }: Props) => {
             </Box>
           )}
         </CardContent>
-      </Link>
+      </StyledLink>
     </StyledCard>
   );
 };

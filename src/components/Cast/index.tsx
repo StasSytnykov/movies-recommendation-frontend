@@ -36,7 +36,6 @@ export const CastInfo = ({ cast }: Props) => {
         }}
       >
         {cast.map((item) => {
-          console.log(item.profilePath);
           if (item.profilePath.endsWith("jpg")) {
             return (
               <ImageListItem key={item.id} sx={{ width: 185 }}>
