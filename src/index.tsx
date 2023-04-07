@@ -34,6 +34,10 @@ const router = createBrowserRouter([
         element: <Settings />,
       },
       {
+        path: "recommend/*",
+        element: <MovieDetails />,
+      },
+      {
         path: "recommend",
         element: <Recommendation />,
       },
