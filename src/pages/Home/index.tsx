@@ -4,7 +4,7 @@ import Paper from "@mui/material/Paper";
 import { useMovies } from "../../hooks";
 import { SelectedMoviesSection } from "../../components";
 import { MoviesSection } from "../../components/MoviesSection";
-import { SearchBar } from "../../components/SearchBar";
+import { SearchBar } from "../../components/SortedBar";
 
 export const Home = () => {
   const { onMovieSelect, onMovieDelete, selectedMovies } = useMovies();
