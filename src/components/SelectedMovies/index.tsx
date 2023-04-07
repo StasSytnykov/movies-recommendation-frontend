@@ -41,9 +41,9 @@ export const SelectedMoviesSection = ({
 
   const onSubmit = (values: Values) => {
     const ids = selectedMovies.map(({ id }) => id);
-    const link = `${window.location.host}/recommend?title=${
-      values.listName
-    }&ids=${ids.join(",")}&language=${locale}`;
+    const link = `/recommend?title=${values.listName}&ids=${ids.join(
+      ","
+    )}&language=${locale}`;
     setUrl(link);
   };
 
