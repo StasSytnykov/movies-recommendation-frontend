@@ -1,5 +1,4 @@
 import { Box, Drawer, List, ListItem } from "@mui/material";
-import React from "react";
 import { LanguageButtons } from "../LanguageButtons";
 
 interface Props {

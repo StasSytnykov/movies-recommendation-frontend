@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from "react";
+import { useCallback, useContext } from "react";
 import { AppContext } from "../../../context";
 import { Box, Button } from "@mui/material";
 import { LOCALES, Tlocale } from "../../../context/defaultContext";

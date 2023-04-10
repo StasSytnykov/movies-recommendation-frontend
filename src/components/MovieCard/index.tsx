@@ -10,7 +10,7 @@ import {
 import { grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 import { useIntl } from "react-intl";
-import { Link as RouterLink, generatePath } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import { IMovie } from "../MoviesSection";
 import { OptionButton } from "../OptionButton";
 
