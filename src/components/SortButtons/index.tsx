@@ -25,7 +25,7 @@ const StyledMenu = styled((props: MenuProps) => (
   "& .MuiPaper-root": {
     borderRadius: 6,
     marginTop: theme.spacing(1),
-    minWidth: 150,
+    minWidth: 160,
     color:
       theme.palette.mode === "light"
         ? "rgb(55, 65, 81)"
@@ -51,12 +51,16 @@ const StyledMenu = styled((props: MenuProps) => (
   },
 }));
 
-type SortedBy = "Popularity" | "Rating" | "Release date";
+const SORTED_BY_POPULARITY = "Popularity";
+const SORTED_BY_RELEASE_DATE = "Release date";
+const SORTED_BY_RATING = "Rating";
+
+type SortedBy = "Popularity" | "Release date" | "Rating";
 
 export const SortButtons = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const [sortedBy, setSortedBy] = useState<SortedBy>("Popularity");
+  const [sortedBy, setSortedBy] = useState<SortedBy>(SORTED_BY_POPULARITY);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -94,31 +98,31 @@ export const SortButtons = () => {
         <MenuItem
           onClick={() => {
             handleClose();
-            setSortedBy("Popularity");
+            setSortedBy(SORTED_BY_POPULARITY);
           }}
           disableRipple
         >
-          {"Popularity"}
+          {SORTED_BY_POPULARITY}
         </MenuItem>
         <Divider sx={{ my: 0.5 }} />
         <MenuItem
           onClick={() => {
             handleClose();
-            setSortedBy("Release date");
+            setSortedBy(SORTED_BY_RELEASE_DATE);
           }}
           disableRipple
         >
-          {"Release date"}
+          {SORTED_BY_RELEASE_DATE}
         </MenuItem>
         <Divider sx={{ my: 0.5 }} />
         <MenuItem
           onClick={() => {
             handleClose();
-            setSortedBy("Rating");
+            setSortedBy(SORTED_BY_RATING);
           }}
           disableRipple
         >
-          {"Rating"}
+          {SORTED_BY_RATING}
         </MenuItem>
       </StyledMenu>
     </Box>
