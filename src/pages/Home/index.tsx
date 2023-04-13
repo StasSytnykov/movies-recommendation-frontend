@@ -7,21 +7,37 @@ import { SelectedMoviesSection } from "../../components";
 import { MoviesSection } from "../../components/MoviesSection";
 import { SearchBar } from "../../components/SortedBar";
 
-export type SortedByQuery = "Popularity" | "Release date" | "Rating" | "";
 export type SortedByType = "desc" | "asc";
 
 export const Home = () => {
-  const [sortedByQuery, setSortedByQuery] = useState<SortedByQuery>("");
+  const [sortedByQuery, setSortedByQuery] = useState<string>("");
+
   const [sortedByType, setSortedByType] = useState<SortedByType>("desc");
   const { onMovieSelect, onMovieDelete, selectedMovies } = useMovies();
-  const stringConverter = (query: SortedByQuery) => {
+  const stringConverter = (query: string) => {
     switch (query) {
       case "Rating":
         return "vote_average";
       case "Release date":
         return "release_date";
+      case "рейтингом":
+        return "vote_average";
+      case "датою виходу":
+        return "release_date";
       default:
         return "popularity";
+    }
+  };
+
+  const onOrderTypeChange = () => {
+    switch (sortedByType) {
+      case "desc":
+        setSortedByType("asc");
+        break;
+
+      default:
+        setSortedByType("desc");
+        break;
     }
   };
 
@@ -32,7 +48,7 @@ export const Home = () => {
           <Paper sx={{ p: 1 }}>
             <SearchBar
               sortedByType={sortedByType}
-              setSortedByType={setSortedByType}
+              onOrderTypeChange={onOrderTypeChange}
               sortedByQuery={sortedByQuery}
               setSortedByQuery={setSortedByQuery}
             />

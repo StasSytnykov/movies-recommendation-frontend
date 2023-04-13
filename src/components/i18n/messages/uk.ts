@@ -14,8 +14,15 @@ export const ua = {
       cast: "Актори",
     },
     headerTab: { settings: "Налаштування", recommend: "Рекомендовані фільми" },
-    searchBar: { inputLabel: "Пошук фільмів", inputBtn: "Пошук" },
-    input: { placeholder: "Назви свій список фільмів", message: "Обов'язкове" },
+    appBar: {
+      searchBar: { inputLabel: "Пошук фільмів", inputBtn: "Пошук" },
+      tooltip: { asc: "За зростанням", desc: "За спаданням" },
+      sortBy: "Сортувати за",
+    },
+    input: {
+      placeholder: "Назви свій список фільмів",
+      message: "Обов'язкове",
+    },
     modal: {
       title: "Твоє посилання щоб поділитись фільмами",
       copied: "Посилання скопійовано!",

@@ -1,7 +1,6 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
+import { useIntl } from "react-intl";
 import Button from "@mui/material/Button";
-import Menu, { MenuProps } from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -10,59 +9,14 @@ import SouthIcon from "@mui/icons-material/South";
 import Tooltip from "@mui/material/Tooltip";
 import { Box, Typography } from "@mui/material";
 import { Props } from "../SortedBar";
-
-const StyledMenu = styled((props: MenuProps) => (
-  <Menu
-    elevation={0}
-    anchorOrigin={{
-      vertical: "bottom",
-      horizontal: "right",
-    }}
-    transformOrigin={{
-      vertical: "top",
-      horizontal: "right",
-    }}
-    {...props}
-  />
-))(({ theme }) => ({
-  "& .MuiPaper-root": {
-    borderRadius: 6,
-    marginTop: theme.spacing(1),
-    minWidth: 160,
-    color:
-      theme.palette.mode === "light"
-        ? "rgb(55, 65, 81)"
-        : theme.palette.grey[300],
-    boxShadow:
-      "rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
-    "& .MuiMenu-list": {
-      padding: "4px 0",
-    },
-    "& .MuiMenuItem-root": {
-      "& .MuiSvgIcon-root": {
-        fontSize: 18,
-        color: theme.palette.text.secondary,
-        marginRight: theme.spacing(1.5),
-      },
-      "&:active": {
-        backgroundColor: alpha(
-          theme.palette.primary.main,
-          theme.palette.action.selectedOpacity
-        ),
-      },
-    },
-  },
-}));
-
-const SORTED_BY_POPULARITY = "Popularity";
-const SORTED_BY_RELEASE_DATE = "Release date";
-const SORTED_BY_RATING = "Rating";
+import { StyledMenu } from "./StyledMeny";
+import { useLangugaeChange } from "../../hooks/useLanguageChange";
 
 export const SortButtons = ({
   sortedByQuery,
   setSortedByQuery,
   sortedByType,
-  setSortedByType,
+  onOrderTypeChange,
 }: Props) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -72,23 +26,17 @@ export const SortButtons = ({
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const onOrderTypeChange = () => {
-    switch (sortedByType) {
-      case "desc":
-        setSortedByType("asc");
-        break;
-
-      default:
-        setSortedByType("desc");
-        break;
-    }
-  };
+  const { sortedByPopularity, sortedByReleaseDate, sortedByRating } =
+    useLangugaeChange({ sortedByQuery, setSortedByQuery });
+  const intl = useIntl();
 
   return (
     <Box sx={{ display: "flex" }}>
       <Typography component="h3" variant="h4" sx={{ marginRight: "10px" }}>
-        Sorted by:
+        {intl.formatMessage({
+          id: "appBar.sortBy",
+        })}
+        :
       </Typography>
       <Button
         id="demo-customized-button"
@@ -99,9 +47,9 @@ export const SortButtons = ({
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
-        sx={{ width: 160, marginRight: 1 }}
+        sx={{ width: 175, marginRight: 1 }}
       >
-        {sortedByQuery === "" ? SORTED_BY_POPULARITY : sortedByQuery}
+        {sortedByQuery === "" ? sortedByPopularity : sortedByQuery}
       </Button>
       <StyledMenu
         id="demo-customized-menu"
@@ -113,37 +61,48 @@ export const SortButtons = ({
         onClose={handleClose}
       >
         <MenuItem
+          sx={{ textTransform: "uppercase" }}
           onClick={() => {
             handleClose();
-            setSortedByQuery(SORTED_BY_POPULARITY);
+            setSortedByQuery(sortedByPopularity);
           }}
           disableRipple
         >
-          {SORTED_BY_POPULARITY}
+          {sortedByPopularity}
         </MenuItem>
         <Divider sx={{ my: 0.5 }} />
         <MenuItem
+          sx={{ textTransform: "uppercase" }}
           onClick={() => {
             handleClose();
-            setSortedByQuery(SORTED_BY_RELEASE_DATE);
+            setSortedByQuery(sortedByReleaseDate);
           }}
           disableRipple
         >
-          {SORTED_BY_RELEASE_DATE}
+          {sortedByReleaseDate}
         </MenuItem>
         <Divider sx={{ my: 0.5 }} />
         <MenuItem
+          sx={{ textTransform: "uppercase" }}
           onClick={() => {
             handleClose();
-            setSortedByQuery(SORTED_BY_RATING);
+            setSortedByQuery(sortedByRating);
           }}
           disableRipple
         >
-          {SORTED_BY_RATING}
+          {sortedByRating}
         </MenuItem>
       </StyledMenu>
       <Tooltip
-        title={sortedByType === "desc" ? "Descending order" : "Ascending order"}
+        title={
+          sortedByType === "desc"
+            ? intl.formatMessage({
+                id: "appBar.tooltip.desc",
+              })
+            : intl.formatMessage({
+                id: "appBar.tooltip.asc",
+              })
+        }
       >
         <Button variant="contained" onClick={onOrderTypeChange}>
           <SouthIcon sx={{ opacity: sortedByType === "desc" ? 1 : 0.5 }} />

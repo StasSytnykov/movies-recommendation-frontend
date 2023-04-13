@@ -14,7 +14,11 @@ export const en = {
       cast: "Cast",
     },
     headerTab: { settings: "Settings", recommend: "Movies recommendation" },
-    searchBar: { inputLabel: "Search movies", inputBtn: "Search" },
+    appBar: {
+      searchBar: { inputLabel: "Search movies", inputBtn: "Search" },
+      tooltip: { asc: "Ascending order", desc: "Descending order" },
+      sortBy: "Sort by",
+    },
     input: { placeholder: "Name your movies list", message: "Required" },
     modal: {
       title: "Your link for sharing movies",
