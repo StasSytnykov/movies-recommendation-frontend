@@ -8,6 +8,7 @@ import { useState } from "react";
 import { MovieCard } from "../MovieCard";
 import { BasicPagination } from "../Pagination/Index";
 import { SORTED_MOVIES_QUERY } from "./queries";
+import { SortedByType } from "../../pages/Home";
 
 export const StyledGrid = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
@@ -31,17 +32,22 @@ export interface IMovie {
 
 interface Props {
   onMovieSelect: (movie: IMovie) => void;
-  sortedBy: "vote_average" | "release_date" | "popularity";
+  sortedByQuery: "vote_average" | "release_date" | "popularity";
+  sortedByType: SortedByType;
 }
 
-export const MoviesSection = ({ onMovieSelect, sortedBy }: Props) => {
+export const MoviesSection = ({
+  onMovieSelect,
+  sortedByQuery,
+  sortedByType,
+}: Props) => {
   const [page, setPage] = useState(1);
 
   const { loading, error, data } = useQuery(SORTED_MOVIES_QUERY, {
     variables: {
       page,
-      sortedQuery: sortedBy,
-      sortedType: "desc",
+      sortedQuery: sortedByQuery,
+      sortedType: sortedByType,
     },
   });
 

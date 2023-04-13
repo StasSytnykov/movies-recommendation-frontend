@@ -5,6 +5,9 @@ import Menu, { MenuProps } from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import NorthIcon from "@mui/icons-material/North";
+import SouthIcon from "@mui/icons-material/South";
+import Tooltip from "@mui/material/Tooltip";
 import { Box, Typography } from "@mui/material";
 import { Props } from "../SortedBar";
 
@@ -55,7 +58,12 @@ const SORTED_BY_POPULARITY = "Popularity";
 const SORTED_BY_RELEASE_DATE = "Release date";
 const SORTED_BY_RATING = "Rating";
 
-export const SortButtons = ({ sortedBy, setSortedBy }: Props) => {
+export const SortButtons = ({
+  sortedByQuery,
+  setSortedByQuery,
+  sortedByType,
+  setSortedByType,
+}: Props) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -63,6 +71,18 @@ export const SortButtons = ({ sortedBy, setSortedBy }: Props) => {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const onOrderTypeChange = () => {
+    switch (sortedByType) {
+      case "desc":
+        setSortedByType("asc");
+        break;
+
+      default:
+        setSortedByType("desc");
+        break;
+    }
   };
 
   return (
@@ -79,9 +99,9 @@ export const SortButtons = ({ sortedBy, setSortedBy }: Props) => {
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
-        sx={{ width: 160 }}
+        sx={{ width: 160, marginRight: 1 }}
       >
-        {sortedBy === "" ? SORTED_BY_POPULARITY : sortedBy}
+        {sortedByQuery === "" ? SORTED_BY_POPULARITY : sortedByQuery}
       </Button>
       <StyledMenu
         id="demo-customized-menu"
@@ -95,7 +115,7 @@ export const SortButtons = ({ sortedBy, setSortedBy }: Props) => {
         <MenuItem
           onClick={() => {
             handleClose();
-            setSortedBy(SORTED_BY_POPULARITY);
+            setSortedByQuery(SORTED_BY_POPULARITY);
           }}
           disableRipple
         >
@@ -105,7 +125,7 @@ export const SortButtons = ({ sortedBy, setSortedBy }: Props) => {
         <MenuItem
           onClick={() => {
             handleClose();
-            setSortedBy(SORTED_BY_RELEASE_DATE);
+            setSortedByQuery(SORTED_BY_RELEASE_DATE);
           }}
           disableRipple
         >
@@ -115,13 +135,21 @@ export const SortButtons = ({ sortedBy, setSortedBy }: Props) => {
         <MenuItem
           onClick={() => {
             handleClose();
-            setSortedBy(SORTED_BY_RATING);
+            setSortedByQuery(SORTED_BY_RATING);
           }}
           disableRipple
         >
           {SORTED_BY_RATING}
         </MenuItem>
       </StyledMenu>
+      <Tooltip
+        title={sortedByType === "desc" ? "Descending order" : "Ascending order"}
+      >
+        <Button variant="contained" onClick={onOrderTypeChange}>
+          <SouthIcon sx={{ opacity: sortedByType === "desc" ? 1 : 0.5 }} />
+          <NorthIcon sx={{ opacity: sortedByType === "asc" ? 1 : 0.5 }} />
+        </Button>
+      </Tooltip>
     </Box>
   );
 };

@@ -7,12 +7,14 @@ import { SelectedMoviesSection } from "../../components";
 import { MoviesSection } from "../../components/MoviesSection";
 import { SearchBar } from "../../components/SortedBar";
 
-export type SortedBy = "Popularity" | "Release date" | "Rating" | "";
+export type SortedByQuery = "Popularity" | "Release date" | "Rating" | "";
+export type SortedByType = "desc" | "asc";
 
 export const Home = () => {
-  const [sortedBy, setSortedBy] = useState<SortedBy>("");
+  const [sortedByQuery, setSortedByQuery] = useState<SortedByQuery>("");
+  const [sortedByType, setSortedByType] = useState<SortedByType>("desc");
   const { onMovieSelect, onMovieDelete, selectedMovies } = useMovies();
-  const stringConverter = (query: SortedBy) => {
+  const stringConverter = (query: SortedByQuery) => {
     switch (query) {
       case "Rating":
         return "vote_average";
@@ -28,12 +30,18 @@ export const Home = () => {
       <Grid container spacing={2}>
         <Grid xs={12}>
           <Paper sx={{ p: 1 }}>
-            <SearchBar sortedBy={sortedBy} setSortedBy={setSortedBy} />
+            <SearchBar
+              sortedByType={sortedByType}
+              setSortedByType={setSortedByType}
+              sortedByQuery={sortedByQuery}
+              setSortedByQuery={setSortedByQuery}
+            />
           </Paper>
         </Grid>
         <Grid xs={12} md={8}>
           <MoviesSection
-            sortedBy={stringConverter(sortedBy)}
+            sortedByQuery={stringConverter(sortedByQuery)}
+            sortedByType={sortedByType}
             onMovieSelect={onMovieSelect}
           />
         </Grid>
