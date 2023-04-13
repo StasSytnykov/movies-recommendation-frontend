@@ -7,7 +7,7 @@ import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import { MovieCard } from "../MovieCard";
 import { BasicPagination } from "../Pagination/Index";
-import { MOVIES_QUERY } from "../../pages/Home/queries";
+import { SORTED_MOVIES_QUERY } from "./queries";
 
 export const StyledGrid = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
@@ -31,13 +31,18 @@ export interface IMovie {
 
 interface Props {
   onMovieSelect: (movie: IMovie) => void;
+  sortedBy: "vote_average" | "release_date" | "popularity";
 }
 
-export const MoviesSection = ({ onMovieSelect }: Props) => {
+export const MoviesSection = ({ onMovieSelect, sortedBy }: Props) => {
   const [page, setPage] = useState(1);
 
-  const { loading, error, data } = useQuery(MOVIES_QUERY, {
-    variables: { page },
+  const { loading, error, data } = useQuery(SORTED_MOVIES_QUERY, {
+    variables: {
+      page,
+      sortedQuery: sortedBy,
+      sortedType: "desc",
+    },
   });
 
   return (
@@ -67,7 +72,7 @@ export const MoviesSection = ({ onMovieSelect }: Props) => {
                 Page not found
               </Box>
             ) : (
-              data.movies.results.map((movie: IMovie) => (
+              data.moviesBySortedQuery.results.map((movie: IMovie) => (
                 <Grid key={movie.id} sm={4} lg={3} sx={{ width: "100%" }}>
                   <MovieCard movie={movie} onMovieSelect={onMovieSelect} />
                 </Grid>

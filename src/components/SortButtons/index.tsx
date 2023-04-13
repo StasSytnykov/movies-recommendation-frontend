@@ -5,8 +5,8 @@ import Menu, { MenuProps } from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { useState } from "react";
 import { Box, Typography } from "@mui/material";
+import { Props } from "../SortedBar";
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -55,12 +55,9 @@ const SORTED_BY_POPULARITY = "Popularity";
 const SORTED_BY_RELEASE_DATE = "Release date";
 const SORTED_BY_RATING = "Rating";
 
-type SortedBy = "Popularity" | "Release date" | "Rating";
-
-export const SortButtons = () => {
+export const SortButtons = ({ sortedBy, setSortedBy }: Props) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const [sortedBy, setSortedBy] = useState<SortedBy>(SORTED_BY_POPULARITY);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -84,7 +81,7 @@ export const SortButtons = () => {
         endIcon={<KeyboardArrowDownIcon />}
         sx={{ width: 160 }}
       >
-        {sortedBy}
+        {sortedBy === "" ? SORTED_BY_POPULARITY : sortedBy}
       </Button>
       <StyledMenu
         id="demo-customized-menu"
