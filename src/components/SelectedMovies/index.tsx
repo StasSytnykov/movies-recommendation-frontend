@@ -54,12 +54,11 @@ export const SelectedMoviesSection = ({
     <Grid xs={12} md={4}>
       <SelectedMovies>
         <Stack
-          spacing={2}
           direction="column"
           sx={{ maxHeight: "88%", overflowY: "auto", marginBottom: 1 }}
         >
           {selectedMovies.map((movie: IMovie) => (
-            <Box key={movie.id}>
+            <Box key={movie.id} sx={{ p: 1 }}>
               <MovieCardSelected
                 movie={movie}
                 onMovieDelete={() => onMovieDelete(movie.id)}

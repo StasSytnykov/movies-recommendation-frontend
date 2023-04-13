@@ -53,33 +53,31 @@ export const MoviesSection = ({ onMovieSelect }: Props) => {
           <CircularProgress />
         </Box>
       ) : (
-        <>
-          <Paper sx={{ mt: 1 }}>
-            <StyledGrid container spacing={2} sx={{ pt: 0 }}>
-              {error ? (
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "100%",
-                  }}
-                >
-                  Page not found
-                </Box>
-              ) : (
-                data.movies.results.map((movie: IMovie) => (
-                  <Grid key={movie.id} sm={4} lg={3} sx={{ width: "100%" }}>
-                    <MovieCard movie={movie} onMovieSelect={onMovieSelect} />
-                  </Grid>
-                ))
-              )}
-            </StyledGrid>
-            <Box sx={{ p: 1 }}>
-              <BasicPagination setPage={setPage} page={page} />
-            </Box>
-          </Paper>
-        </>
+        <Paper sx={{ mt: 1 }}>
+          <StyledGrid container spacing={2} sx={{ pt: 0 }}>
+            {error ? (
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "100%",
+                }}
+              >
+                Page not found
+              </Box>
+            ) : (
+              data.movies.results.map((movie: IMovie) => (
+                <Grid key={movie.id} sm={4} lg={3} sx={{ width: "100%" }}>
+                  <MovieCard movie={movie} onMovieSelect={onMovieSelect} />
+                </Grid>
+              ))
+            )}
+          </StyledGrid>
+          <Box sx={{ p: 1 }}>
+            <BasicPagination setPage={setPage} page={page} />
+          </Box>
+        </Paper>
       )}
     </Box>
   );
