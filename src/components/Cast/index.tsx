@@ -6,6 +6,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useIntl } from "react-intl";
+import { TypographyStyle, ImageListSyle, ImageListItemStyle } from "./styles";
 
 type Cast = {
   name: string;
@@ -22,27 +23,16 @@ export const CastInfo = ({ cast }: Props) => {
   const intl = useIntl();
   return (
     <Box>
-      <Typography
-        variant="h4"
-        component="div"
-        sx={{ textAlign: "center", marginTop: "20px" }}
-      >
+      <Typography variant="h4" component="div" sx={TypographyStyle}>
         {intl.formatMessage({
           id: "movieCard.cast",
         })}
       </Typography>
-      <ImageList
-        gap={10}
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-        }}
-      >
+      <ImageList gap={10} sx={ImageListSyle}>
         {cast.map((item) => {
           if (item.profilePath.endsWith("jpg")) {
             return (
-              <ImageListItem key={item.id} sx={{ width: 185 }}>
+              <ImageListItem key={item.id} sx={ImageListItemStyle}>
                 <img src={item.profilePath} alt={item.name} loading="lazy" />
                 <ImageListItemBar title={item.name} subtitle={item.character} />
               </ImageListItem>

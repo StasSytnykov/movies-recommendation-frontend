@@ -6,6 +6,7 @@ import { useMovies } from "../../hooks";
 import { SelectedMoviesSection } from "../../components";
 import { MoviesSection } from "../../components/MoviesSection";
 import { SearchBar } from "../../components/SortedBar";
+import { BoxStyles, PaperStyles } from "./styles";
 
 export type SortedByType = "desc" | "asc";
 
@@ -42,10 +43,10 @@ export const Home = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, paddingTop: 4 }}>
+    <Box sx={BoxStyles}>
       <Grid container spacing={2}>
         <Grid xs={12}>
-          <Paper sx={{ p: 1 }}>
+          <Paper sx={PaperStyles}>
             <SearchBar
               sortedByType={sortedByType}
               onOrderTypeChange={onOrderTypeChange}

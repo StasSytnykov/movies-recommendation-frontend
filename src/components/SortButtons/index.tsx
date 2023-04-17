@@ -9,7 +9,14 @@ import SouthIcon from "@mui/icons-material/South";
 import Tooltip from "@mui/material/Tooltip";
 import { Box, Typography } from "@mui/material";
 import { Props } from "../SortedBar";
-import { StyledMenu } from "./StyledMeny";
+import {
+  BoxStyles,
+  TypographyStyles,
+  ButtonStyles,
+  StyledMenu,
+  MenuItemStyles,
+  DeviderStyles,
+} from "./styles";
 import { useLangugaeChange } from "../../hooks/useLanguageChange";
 
 export const SortButtons = ({
@@ -31,8 +38,8 @@ export const SortButtons = ({
   const intl = useIntl();
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <Typography component="h3" variant="h4" sx={{ marginRight: "10px" }}>
+    <Box sx={BoxStyles}>
+      <Typography component="h3" variant="h4" sx={TypographyStyles}>
         {intl.formatMessage({
           id: "appBar.sortBy",
         })}
@@ -47,7 +54,7 @@ export const SortButtons = ({
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
-        sx={{ width: 175, marginRight: 1 }}
+        sx={ButtonStyles}
       >
         {sortedByQuery === "" ? sortedByPopularity : sortedByQuery}
       </Button>
@@ -61,7 +68,7 @@ export const SortButtons = ({
         onClose={handleClose}
       >
         <MenuItem
-          sx={{ textTransform: "uppercase" }}
+          sx={MenuItemStyles}
           onClick={() => {
             handleClose();
             setSortedByQuery(sortedByPopularity);
@@ -70,9 +77,9 @@ export const SortButtons = ({
         >
           {sortedByPopularity}
         </MenuItem>
-        <Divider sx={{ my: 0.5 }} />
+        <Divider sx={DeviderStyles} />
         <MenuItem
-          sx={{ textTransform: "uppercase" }}
+          sx={MenuItemStyles}
           onClick={() => {
             handleClose();
             setSortedByQuery(sortedByReleaseDate);
@@ -81,9 +88,9 @@ export const SortButtons = ({
         >
           {sortedByReleaseDate}
         </MenuItem>
-        <Divider sx={{ my: 0.5 }} />
+        <Divider sx={DeviderStyles} />
         <MenuItem
-          sx={{ textTransform: "uppercase" }}
+          sx={MenuItemStyles}
           onClick={() => {
             handleClose();
             setSortedByQuery(sortedByRating);

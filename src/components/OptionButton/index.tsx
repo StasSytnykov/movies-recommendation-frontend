@@ -5,6 +5,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Box from "@mui/material/Box";
 import React, { useState } from "react";
+import { BoxStyles, IconButtonStyles, MenuStyles } from "./styles";
 
 interface Props {
   titleButton: string;
@@ -27,7 +28,7 @@ export const OptionButton = ({
   };
 
   return (
-    <Box sx={{ position: "absolute", left: 5, top: 5, zIndex: 100 }}>
+    <Box sx={BoxStyles}>
       <IconButton
         aria-label="more"
         id="long-button"
@@ -35,12 +36,12 @@ export const OptionButton = ({
         aria-expanded={open ? "true" : undefined}
         aria-haspopup="true"
         onClick={handleClick}
-        sx={{ backgroundColor: grey[100], opacity: 0.8, height: 30, width: 30 }}
+        sx={IconButtonStyles}
       >
         <MoreVertIcon color={"primary"} />
       </IconButton>
       <Menu
-        sx={{ position: "absolute" }}
+        sx={MenuStyles}
         id="long-menu"
         MenuListProps={{
           "aria-labelledby": "long-button",

@@ -3,25 +3,11 @@ import Box from "@mui/material/Box";
 import { MovieCardSelected } from "../index";
 import Grid from "@mui/material/Unstable_Grid2";
 import { IMovie } from "../MoviesSection";
-import { styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
 import { ConfirmFilmInput } from "../ConfirmFilmInput";
 import { ConfirmModal } from "../index";
 import { useContext, useState } from "react";
 import { AppContext } from "../../context";
-
-const SelectedMovies = styled(Paper)(({ theme }) => ({
-  backgroundColor: "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  color: theme.palette.text.secondary,
-  height: "calc(100vh - 190px)",
-  position: "sticky",
-  top: theme.spacing(2),
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
-}));
+import { SelectedMovies, StackStyles, BoxStyles } from "./styles";
 
 interface Props {
   onMovieDelete: (id: number) => void;
@@ -53,12 +39,9 @@ export const SelectedMoviesSection = ({
   return (
     <Grid xs={12} md={4}>
       <SelectedMovies>
-        <Stack
-          direction="column"
-          sx={{ maxHeight: "88%", overflowY: "auto", marginBottom: 1 }}
-        >
+        <Stack direction="column" sx={StackStyles}>
           {selectedMovies.map((movie: IMovie) => (
-            <Box key={movie.id} sx={{ p: 1 }}>
+            <Box key={movie.id} sx={BoxStyles}>
               <MovieCardSelected
                 movie={movie}
                 onMovieDelete={() => onMovieDelete(movie.id)}

@@ -5,10 +5,11 @@ import { useQuery } from "@apollo/client";
 import { MOVIES_BY_IDS } from "./queries";
 import Grid from "@mui/material/Unstable_Grid2";
 import { MovieCard } from "../../components";
-import { IMovie, StyledGrid } from "../../components/MoviesSection";
+import { IMovie } from "../../components/MoviesSection";
+import { StyledGrid } from "../../components/MoviesSection/styles";
 import { AppContext } from "../../context";
-import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
+import { Loader } from "../../components/Loader/Loader";
+import { TypographyStyles } from "./styles";
 
 export const Recommendation = () => {
   const [searchParams] = useSearchParams();
@@ -47,18 +48,10 @@ export const Recommendation = () => {
   return (
     <>
       {loading ? (
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <CircularProgress />
-        </Box>
+        <Loader />
       ) : (
         <>
-          <Typography variant="h3" gutterBottom sx={{ textAlign: "center" }}>
+          <Typography variant="h3" gutterBottom sx={TypographyStyles}>
             {params.title}
           </Typography>
           <StyledGrid container spacing={2}>

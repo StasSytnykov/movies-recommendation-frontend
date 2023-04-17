@@ -2,6 +2,7 @@ import { Box, Button } from "@mui/material";
 import { useIntl } from "react-intl";
 import { SortButtons } from "../SortButtons";
 import { SortedByType } from "../../pages/Home";
+import { BoxStyles, ByttonStyles } from "./styles";
 
 export interface Props {
   sortedByQuery: string;
@@ -19,18 +20,14 @@ export const SearchBar = ({
   const intl = useIntl();
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+    <Box sx={BoxStyles}>
       <SortButtons
         sortedByType={sortedByType}
         onOrderTypeChange={onOrderTypeChange}
         sortedByQuery={sortedByQuery}
         setSortedByQuery={setSortedByQuery}
       />
-      <Button
-        type="submit"
-        variant="outlined"
-        sx={{ ml: "20px", width: "150px" }}
-      >
+      <Button type="submit" variant="outlined" sx={ByttonStyles}>
         {intl.formatMessage({
           id: "appBar.searchBar.inputBtn",
         })}

@@ -2,6 +2,12 @@ import { Box, Typography, CardContent, Card, CardMedia } from "@mui/material";
 import { OptionButton } from "../OptionButton";
 import { IMovie } from "../MoviesSection";
 import { useIntl } from "react-intl";
+import {
+  CardStyles,
+  CardMediaStyles,
+  BoxStyles,
+  CardContentStyles,
+} from "./styles";
 
 export interface Props {
   movie: IMovie;
@@ -12,7 +18,7 @@ export const MovieCardSelected = ({ movie, onMovieDelete }: Props) => {
   const intl = useIntl();
 
   return (
-    <Card sx={{ display: "flex", position: "relative" }}>
+    <Card sx={CardStyles}>
       <OptionButton
         titleButton={intl.formatMessage({
           id: "cardMenu.delete",
@@ -21,18 +27,12 @@ export const MovieCardSelected = ({ movie, onMovieDelete }: Props) => {
       />
       <CardMedia
         component="img"
-        sx={{ width: 100 }}
+        sx={CardMediaStyles}
         image={movie.posterPath}
         alt={movie.title}
       />
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          width: "100%",
-        }}
-      >
-        <CardContent sx={{ flex: "1 0 auto", padding: 1 }}>
+      <Box sx={BoxStyles}>
+        <CardContent sx={CardContentStyles}>
           <Typography component="div" variant="h6">
             {movie.title}
           </Typography>

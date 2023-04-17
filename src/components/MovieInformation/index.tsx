@@ -1,6 +1,12 @@
-import { Card, Typography, CardMedia, CardContent } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { CardMedia, CardContent } from "@mui/material";
 import { useIntl } from "react-intl";
+import {
+  CardMediaStyles,
+  StyledCard,
+  StyledTitle,
+  StyledDetail,
+  StyledOverview,
+} from "./styles";
 
 interface Props {
   movie: {
@@ -14,34 +20,6 @@ interface Props {
   };
 }
 
-const StyledCard = styled(Card)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  [theme.breakpoints.up("sm")]: {
-    flexDirection: "row",
-    alignItems: "start",
-  },
-}));
-
-const StyledTitle = styled(Typography)(({ theme }) => ({
-  fontWeight: 500,
-  [theme.breakpoints.down("md")]: {
-    fontSize: "1.5rem",
-  },
-})) as typeof Typography;
-
-const StyledDetail = styled(Typography)(({ theme }) => ({
-  [theme.breakpoints.down("md")]: {
-    fontSize: "1rem",
-  },
-})) as typeof Typography;
-
-const StyledOverview = styled(Typography)(({ theme }) => ({
-  [theme.breakpoints.down("md")]: {
-    fontSize: "0.80rem",
-  },
-})) as typeof Typography;
 export const MovieInformation = ({ movie }: Props) => {
   const intl = useIntl();
   return (
@@ -50,7 +28,7 @@ export const MovieInformation = ({ movie }: Props) => {
         component="img"
         image={movie.posterPath}
         title={movie.title}
-        sx={{ width: "300px" }}
+        sx={CardMediaStyles}
         loading="lazy"
       />
       <CardContent>

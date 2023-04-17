@@ -1,7 +1,13 @@
 import Menu, { MenuProps } from "@mui/material/Menu";
 import { styled, alpha } from "@mui/material/styles";
 
-export const StyledMenu = styled((props: MenuProps) => (
+const BoxStyles = { display: "flex" };
+
+const TypographyStyles = { marginRight: "10px" };
+
+const ButtonStyles = { width: 175, marginRight: 1 };
+
+const StyledMenu = styled((props: MenuProps) => (
   <Menu
     elevation={0}
     anchorOrigin={{
@@ -43,3 +49,16 @@ export const StyledMenu = styled((props: MenuProps) => (
     },
   },
 }));
+
+const MenuItemStyles = { textTransform: "uppercase" };
+
+const DeviderStyles = { my: 0.5 };
+
+export {
+  BoxStyles,
+  TypographyStyles,
+  ButtonStyles,
+  StyledMenu,
+  MenuItemStyles,
+  DeviderStyles,
+};

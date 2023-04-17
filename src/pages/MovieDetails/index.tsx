@@ -5,7 +5,8 @@ import { Box } from "@mui/material";
 import { MOVIE_DETAILS } from "./queries";
 import { MovieInformation } from "../../components/MovieInformation";
 import { CastInfo } from "../../components/Cast";
-import CircularProgress from "@mui/material/CircularProgress";
+import { Loader } from "../../components/Loader/Loader";
+import { BoxStyles } from "./styles";
 
 export const MovieDetails = () => {
   const [searchParams] = useSearchParams();
@@ -24,17 +25,9 @@ export const MovieDetails = () => {
   return (
     <>
       {loading ? (
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <CircularProgress />
-        </Box>
+        <Loader />
       ) : (
-        <Box sx={{ marginTop: "25px" }}>
+        <Box sx={BoxStyles}>
           <MovieInformation movie={data.movieById} />
           <CastInfo cast={data.castByMovieId.cast} />
         </Box>

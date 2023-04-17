@@ -1,50 +1,16 @@
-import {
-  Box,
-  Chip,
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  Link,
-} from "@mui/material";
-import { grey } from "@mui/material/colors";
-import { styled } from "@mui/material/styles";
+import { Box, Chip, CardContent, Typography } from "@mui/material";
 import { useIntl } from "react-intl";
 import { Link as RouterLink } from "react-router-dom";
 import { IMovie } from "../MoviesSection";
 import { OptionButton } from "../OptionButton";
-
-const StyledCard = styled(Card)(({ theme }) => ({
-  [theme.breakpoints.down("sm")]: {
-    display: "flex",
-  },
-}));
-
-const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
-  [theme.breakpoints.down("sm")]: {
-    width: 100,
-  },
-  [theme.breakpoints.up("sm")]: {
-    width: "100%",
-    height: "100%",
-    maxHeight: 330,
-    minHeight: 330,
-  },
-})) as typeof CardMedia;
-
-const StyledTypography = styled(Typography)(({ theme }) => ({
-  [theme.breakpoints.up("sm")]: {
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-  },
-})) as typeof Typography;
-
-const StyledLink = styled(Link)(({ theme }) => ({
-  [theme.breakpoints.down("sm")]: {
-    display: "flex",
-  },
-})) as typeof Link;
+import {
+  StyledCard,
+  StyledLink,
+  StyledCardMedia,
+  BoxStyles,
+  ChipStyles,
+  StyledTypography,
+} from "./styles";
 
 const PAGE_TYPE = "recommendation";
 
@@ -63,7 +29,7 @@ export const MovieCard = ({ movie, onMovieSelect, pageType }: Props) => {
       .splice(0, 2)
       .join(", ");
   return (
-    <StyledCard sx={{ position: "relative" }}>
+    <StyledCard>
       {pageType === PAGE_TYPE ? null : (
         <OptionButton
           titleButton={intl.formatMessage({
@@ -72,27 +38,14 @@ export const MovieCard = ({ movie, onMovieSelect, pageType }: Props) => {
           onMovieSelect={() => onMovieSelect && onMovieSelect(movie)}
         />
       )}
-      <StyledLink
-        to={`movie-details?id=${movie.id}`}
-        component={RouterLink}
-        sx={{ textDecoration: "none", color: "inherit" }}
-      >
-        <Box sx={{ position: "relative" }}>
+      <StyledLink to={`movie-details?id=${movie.id}`} component={RouterLink}>
+        <Box sx={BoxStyles}>
           <StyledCardMedia
             component="img"
             image={movie.posterPath}
             alt={movie.title}
           />
-          <Chip
-            sx={{
-              backgroundColor: grey[100],
-              opacity: 0.8,
-              position: "absolute",
-              top: 5,
-              right: 5,
-            }}
-            label={movie.rating.toFixed(1)}
-          />
+          <Chip sx={ChipStyles} label={movie.rating.toFixed(1)} />
         </Box>
 
         <CardContent>

@@ -3,7 +3,7 @@ import { MovieCard } from "./MovieCard";
 import { MovieCardSelected } from "./MovieCardSelected";
 import { SelectedMoviesSection } from "./SelectedMovies";
 import { BasicPagination } from "./Pagination/Index";
-import { ConfirmModal } from "./ConfirmModal";
+import { ConfirmModal } from "./ShareModal";
 
 export {
   Navigation,

@@ -1,5 +1,6 @@
 import { Box, Drawer, List, ListItem } from "@mui/material";
 import { LanguageButtons } from "../LanguageButtons";
+import { BoxStyles, ListItemStyles } from "./styles";
 
 interface Props {
   isDrawerOpen: boolean;
@@ -12,9 +13,9 @@ export const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }: Props) => (
     open={isDrawerOpen}
     onClose={() => setIsDrawerOpen(false)}
   >
-    <Box sx={{ width: 250 }} role="presentation">
+    <Box sx={BoxStyles} role="presentation">
       <List>
-        <ListItem sx={{ display: "flex", justifyContent: "center" }}>
+        <ListItem sx={ListItemStyles}>
           <LanguageButtons />
         </ListItem>
       </List>

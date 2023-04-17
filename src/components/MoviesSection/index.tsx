@@ -2,21 +2,21 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import CircularProgress from "@mui/material/CircularProgress";
-import { styled } from "@mui/material/styles";
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import { MovieCard } from "../MovieCard";
 import { BasicPagination } from "../Pagination/Index";
 import { SORTED_MOVIES_QUERY } from "./queries";
 import { SortedByType } from "../../pages/Home";
-
-export const StyledGrid = styled(Grid)(({ theme }) => ({
-  [theme.breakpoints.down("sm")]: {
-    justifyContent: "center",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-}));
+import {
+  ContatinerThumbStyles,
+  BoxStyles,
+  PaperStyles,
+  StyledGrid,
+  BoxStylesInGrid,
+  GridStyles,
+  ThumbPaginationStyles,
+} from "./styles";
 
 export interface IMovie {
   id: number;
@@ -52,40 +52,25 @@ export const MoviesSection = ({
   });
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={ContatinerThumbStyles}>
       {loading ? (
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <Box sx={BoxStyles}>
           <CircularProgress />
         </Box>
       ) : (
-        <Paper sx={{ mt: 1 }}>
-          <StyledGrid container spacing={2} sx={{ pt: 0 }}>
+        <Paper sx={PaperStyles}>
+          <StyledGrid container spacing={2}>
             {error ? (
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "100%",
-                }}
-              >
-                Page not found
-              </Box>
+              <Box sx={BoxStylesInGrid}>Page not found</Box>
             ) : (
               data.moviesBySortedQuery.results.map((movie: IMovie) => (
-                <Grid key={movie.id} sm={4} lg={3} sx={{ width: "100%" }}>
+                <Grid key={movie.id} sm={4} lg={3} sx={GridStyles}>
                   <MovieCard movie={movie} onMovieSelect={onMovieSelect} />
                 </Grid>
               ))
             )}
           </StyledGrid>
-          <Box sx={{ p: 1 }}>
+          <Box sx={ThumbPaginationStyles}>
             <BasicPagination setPage={setPage} page={page} />
           </Box>
         </Paper>

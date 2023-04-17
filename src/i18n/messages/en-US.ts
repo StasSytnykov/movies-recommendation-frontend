@@ -1,4 +1,4 @@
-import { LOCALES } from "../../../context/defaultContext";
+import { LOCALES } from "../../context/defaultContext";
 
 export const en = {
   [LOCALES.ENGLISH]: {

@@ -1,4 +1,4 @@
-import { Provider as I18nProvider } from "../i18n/Provider";
+import { Provider as I18nProvider } from "../../i18n/Provider";
 import { ReactNode, useContext } from "react";
 import { AppContext } from "../../context";
 

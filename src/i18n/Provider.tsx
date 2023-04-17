@@ -1,6 +1,6 @@
 import { Fragment, ReactNode } from "react";
 import { IntlProvider } from "react-intl";
-import { LOCALES, Tlocale } from "../../context/defaultContext";
+import { LOCALES, Tlocale } from "../context/defaultContext";
 import { messages } from "./messages";
 const flatten = require("flat");
 

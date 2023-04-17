@@ -13,13 +13,20 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Link as RouterLink } from "react-router-dom";
 import { NavDrawer } from "./NavDrawer";
 import { LanguageButtons } from "./LanguageButtons";
+import {
+  AppBarStyles,
+  IconButtonStyles,
+  BoxStyles,
+  LinkStyles,
+  TypographyStyles,
+} from "./styles";
 
 export const Navigation = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
     <Box>
-      <AppBar position="static" sx={{ height: "60px" }}>
+      <AppBar position="static" sx={AppBarStyles}>
         <Toolbar>
           <Hidden only={["lg", "xl", "md", "sm"]}>
             <IconButton
@@ -28,19 +35,15 @@ export const Navigation = () => {
               edge="start"
               color="inherit"
               aria-label="menu"
-              sx={{ mr: 2 }}
+              sx={IconButtonStyles}
             >
               <MenuIcon />
             </IconButton>
           </Hidden>
 
-          <Box sx={{ flexGrow: 1, display: { md: "flex" } }}>
-            <Link
-              to={"/"}
-              component={RouterLink}
-              sx={{ textDecoration: "none" }}
-            >
-              <Typography variant="h6" component="div" sx={{ color: "white" }}>
+          <Box sx={BoxStyles}>
+            <Link to={"/"} component={RouterLink} sx={LinkStyles}>
+              <Typography variant="h6" component="div" sx={TypographyStyles}>
                 <FormattedMessage id="headerTab.recommend" />
               </Typography>
             </Link>
