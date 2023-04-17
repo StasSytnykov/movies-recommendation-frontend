@@ -4,7 +4,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Paper from "@mui/material/Paper";
 import { useMovies } from "../../hooks";
 import { SelectedMoviesSection } from "../../components";
-import { MoviesSection } from "../../components/MoviesSection";
+import { Movies } from "../../conteiners/Movies";
 import { SearchBar } from "../../components/SortedBar";
 import { BoxStyles, PaperStyles } from "./styles";
 
@@ -56,7 +56,7 @@ export const Home = () => {
           </Paper>
         </Grid>
         <Grid xs={12} md={8}>
-          <MoviesSection
+          <Movies
             sortedByQuery={stringConverter(sortedByQuery)}
             sortedByType={sortedByType}
             onMovieSelect={onMovieSelect}

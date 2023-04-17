@@ -1,10 +1,10 @@
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-import { MovieCardSelected } from "../index";
+import { MovieCardSelected } from "../../components/index";
 import Grid from "@mui/material/Unstable_Grid2";
-import { IMovie } from "../MoviesSection";
-import { ConfirmFilmInput } from "../ConfirmFilmInput";
-import { ConfirmModal } from "../index";
+import { IMovie } from "../Movies";
+import { ConfirmFilmInput } from "../../components/ConfirmFilmInput";
+import { ConfirmModal } from "../../components/index";
 import { useContext, useState } from "react";
 import { AppContext } from "../../context";
 import { SelectedMovies, StackStyles, BoxStyles } from "./styles";

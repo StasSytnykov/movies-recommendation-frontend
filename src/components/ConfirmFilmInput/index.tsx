@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import ShareIcon from "@mui/icons-material/Share";
 import { Form, Field } from "react-final-form";
-import { Values } from "../SelectedMovies";
+import { Values } from "../../conteiners/SelectedMovies";
 import { formValidation } from "./formValidation";
 import { useIntl, FormattedMessage } from "react-intl";
 import { PaperStyles, InputBaseStyle, TypographyStyle } from "./styles";

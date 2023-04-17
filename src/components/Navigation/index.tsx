@@ -12,7 +12,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link as RouterLink } from "react-router-dom";
 import { NavDrawer } from "./NavDrawer";
-import { LanguageButtons } from "./LanguageButtons";
+import { LanguageButtons } from "../LanguageButtons";
 import {
   AppBarStyles,
   IconButtonStyles,

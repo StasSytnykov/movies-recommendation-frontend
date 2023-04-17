@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IMovie } from "../../components/MoviesSection";
+import { IMovie } from "../../conteiners/Movies";
 
 interface ChooseMovie extends IMovie {
   overview: string;

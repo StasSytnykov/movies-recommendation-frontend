@@ -1,5 +1,5 @@
 import { Box, Drawer, List, ListItem } from "@mui/material";
-import { LanguageButtons } from "../LanguageButtons";
+import { LanguageButtons } from "../../LanguageButtons";
 import { BoxStyles, ListItemStyles } from "./styles";
 
 interface Props {

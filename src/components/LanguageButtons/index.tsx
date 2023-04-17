@@ -1,7 +1,7 @@
 import { useCallback, useContext } from "react";
-import { AppContext } from "../../../context";
+import { AppContext } from "../../context";
 import { Box, Button } from "@mui/material";
-import { LOCALES, Tlocale } from "../../../context/defaultContext";
+import { LOCALES, Tlocale } from "../../context/defaultContext";
 import { UA, US } from "country-flag-icons/react/3x2";
 
 export const LanguageButtons = () => {

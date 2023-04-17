@@ -1,7 +1,7 @@
 import { Box, Chip, CardContent, Typography } from "@mui/material";
 import { useIntl } from "react-intl";
 import { Link as RouterLink } from "react-router-dom";
-import { IMovie } from "../MoviesSection";
+import { IMovie } from "../../conteiners/Movies";
 import { OptionButton } from "../OptionButton";
 import {
   StyledCard,

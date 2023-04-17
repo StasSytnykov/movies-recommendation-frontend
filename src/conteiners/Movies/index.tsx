@@ -4,8 +4,8 @@ import Grid from "@mui/material/Unstable_Grid2";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
-import { MovieCard } from "../MovieCard";
-import { BasicPagination } from "../Pagination/Index";
+import { MovieCard } from "../../components/MovieCard";
+import { BasicPagination } from "../../components/Pagination/Index";
 import { SORTED_MOVIES_QUERY } from "./queries";
 import { SortedByType } from "../../pages/Home";
 import {
@@ -36,7 +36,7 @@ interface Props {
   sortedByType: SortedByType;
 }
 
-export const MoviesSection = ({
+export const Movies = ({
   onMovieSelect,
   sortedByQuery,
   sortedByType,
