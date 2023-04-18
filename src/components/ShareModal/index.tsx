@@ -26,7 +26,7 @@ interface Props {
   url: string;
 }
 
-export const ConfirmModal = ({ open, onCloseModal, url }: Props) => {
+export const ShareModal = ({ open, onCloseModal, url }: Props) => {
   const intl = useIntl();
   return (
     <Modal

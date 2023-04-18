@@ -5,7 +5,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import { MovieCard } from "../../components/MovieCard";
-import { BasicPagination } from "../../components/Pagination/Index";
+import { BasicPagination } from "../../components/Pagination";
 import { SORTED_MOVIES_QUERY } from "./queries";
 import { SortedByType } from "../../pages/Home";
 import {

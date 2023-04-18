@@ -8,7 +8,7 @@ import { MovieCard } from "../../components";
 import { IMovie } from "../../conteiners/Movies";
 import { StyledGrid } from "../../conteiners/Movies/styles";
 import { AppContext } from "../../context";
-import { Loader } from "../../components/Loader/Loader";
+import { Loader } from "../../components";
 import { TypographyStyles } from "./styles";
 
 export const Recommendation = () => {

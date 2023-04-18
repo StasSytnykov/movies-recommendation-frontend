@@ -3,9 +3,9 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
 import Paper from "@mui/material/Paper";
 import { useMovies } from "../../hooks";
-import { SelectedMoviesSection } from "../../components";
+import { SelectedMoviesSection } from "../../conteiners";
 import { Movies } from "../../conteiners/Movies";
-import { SearchBar } from "../../components/SortedBar";
+import { SortedBar } from "../../conteiners";
 import { BoxStyles, PaperStyles } from "./styles";
 
 export type SortedByType = "desc" | "asc";
@@ -47,7 +47,7 @@ export const Home = () => {
       <Grid container spacing={2}>
         <Grid xs={12}>
           <Paper sx={PaperStyles}>
-            <SearchBar
+            <SortedBar
               sortedByType={sortedByType}
               onOrderTypeChange={onOrderTypeChange}
               sortedByQuery={sortedByQuery}

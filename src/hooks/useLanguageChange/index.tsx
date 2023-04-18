@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AppContext } from "../../context";
-import { Props } from "../../components/SortedBar";
+import { Props } from "../../conteiners/SortedBar";
 
 const SORTED_BY_POPULARITY = "Popularity";
 const SORTED_BY_RELEASE_DATE = "Release date";

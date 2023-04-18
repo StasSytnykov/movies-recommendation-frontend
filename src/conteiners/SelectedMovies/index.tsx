@@ -1,10 +1,10 @@
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-import { MovieCardSelected } from "../../components/index";
 import Grid from "@mui/material/Unstable_Grid2";
+import { MovieCardSelected } from "../../components";
 import { IMovie } from "../Movies";
-import { ConfirmFilmInput } from "../../components/ConfirmFilmInput";
-import { ConfirmModal } from "../../components/index";
+import { ConfirmFilmInput } from "../../components";
+import { ShareModal } from "../../components";
 import { useContext, useState } from "react";
 import { AppContext } from "../../context";
 import { SelectedMovies, StackStyles, BoxStyles } from "./styles";
@@ -51,7 +51,7 @@ export const SelectedMoviesSection = ({
         </Stack>
         <ConfirmFilmInput onSubmit={onSubmit} />
       </SelectedMovies>
-      <ConfirmModal open={!!url} url={url} onCloseModal={onCloseModal} />
+      <ShareModal open={!!url} url={url} onCloseModal={onCloseModal} />
     </Grid>
   );
 };
