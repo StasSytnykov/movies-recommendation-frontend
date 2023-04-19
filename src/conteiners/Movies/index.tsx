@@ -51,6 +51,10 @@ export const Movies = ({
     },
   });
 
+  const onPageClick = (event: React.ChangeEvent<unknown>, page: number) => {
+    setPage(page);
+  };
+
   return (
     <Box sx={ContatinerThumbStyles}>
       {loading ? (
@@ -71,7 +75,7 @@ export const Movies = ({
             )}
           </StyledGrid>
           <Box sx={ThumbPaginationStyles}>
-            <BasicPagination setPage={setPage} page={page} />
+            <BasicPagination onPageClick={onPageClick} page={page} />
           </Box>
         </Paper>
       )}

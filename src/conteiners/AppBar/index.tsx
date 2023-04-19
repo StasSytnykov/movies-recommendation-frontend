@@ -1,9 +1,10 @@
-import { Box } from "@mui/material";
+import { Box, SelectChangeEvent } from "@mui/material";
 import { SortButtons } from "../../components";
 import { SortedByType } from "../../pages/Home";
 import { StyledBox, BoxStylesInBox } from "./styles";
 import { SortBtnByOrder } from "../../components";
 import { SearchBar } from "../../components";
+import { useLangugaeChange } from "../../hooks/useLanguageChange";
 
 export interface Props {
   sortedByQuery: string;
@@ -18,6 +19,13 @@ export const AppBar = ({
   sortedByType,
   onOrderTypeChange,
 }: Props) => {
+  const { sortedByPopularity, sortedByReleaseDate, sortedByRating } =
+    useLangugaeChange({ sortedByQuery, setSortedByQuery });
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setSortedByQuery(event.target.value as string);
+  };
+
   return (
     <StyledBox>
       <SearchBar />
@@ -25,7 +33,10 @@ export const AppBar = ({
         <Box sx={BoxStylesInBox}>
           <SortButtons
             sortedByQuery={sortedByQuery}
-            setSortedByQuery={setSortedByQuery}
+            handleChange={handleChange}
+            sortedByPopularity={sortedByPopularity}
+            sortedByReleaseDate={sortedByReleaseDate}
+            sortedByRating={sortedByRating}
           />
           <SortBtnByOrder
             sortedByType={sortedByType}

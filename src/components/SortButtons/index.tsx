@@ -1,24 +1,26 @@
 import MenuItem from "@mui/material/MenuItem";
 import { Props } from "../../conteiners/AppBar";
-import { useLangugaeChange } from "../../hooks/useLanguageChange";
 import { Box, FormControl, InputLabel } from "@mui/material";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useIntl } from "react-intl";
 
-type PropsSortBtns = Omit<Props, "sortedByType" | "onOrderTypeChange">;
+type PropsSortBtns = Pick<Props, "sortedByQuery">;
+
+interface ISortButtons extends PropsSortBtns {
+  sortedByPopularity: string;
+  sortedByReleaseDate: string;
+  sortedByRating: string;
+  handleChange(event: SelectChangeEvent): void;
+}
 
 export const SortButtons = ({
   sortedByQuery,
-  setSortedByQuery,
-}: PropsSortBtns) => {
+  handleChange,
+  sortedByPopularity,
+  sortedByRating,
+  sortedByReleaseDate,
+}: ISortButtons) => {
   const intl = useIntl();
-  const { sortedByPopularity, sortedByReleaseDate, sortedByRating } =
-    useLangugaeChange({ sortedByQuery, setSortedByQuery });
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setSortedByQuery(event.target.value as string);
-  };
-
   return (
     <Box sx={{ minWidth: 120, mr: 1 }}>
       <FormControl fullWidth>
@@ -28,6 +30,7 @@ export const SortButtons = ({
           })}
         </InputLabel>
         <Select
+          sx={{ width: "170px" }}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={sortedByQuery}
