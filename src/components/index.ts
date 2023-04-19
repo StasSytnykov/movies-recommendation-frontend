@@ -12,6 +12,7 @@ import { OptionButton } from "./OptionButton";
 import { ProviderWrapper } from "./Provider";
 import { SortBtnByOrder } from "./SortBtnByOrder";
 import { SortButtons } from "./SortButtons";
+import { ErrorPage } from "./404/ErrorPage";
 
 export {
   CastInfo,
@@ -28,4 +29,5 @@ export {
   ShareModal,
   SortBtnByOrder,
   SortButtons,
+  ErrorPage,
 };

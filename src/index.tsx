@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
@@ -8,6 +7,7 @@ import { Settings, Home, Recommendation } from "./pages";
 import { AppContextProvider } from "./context";
 import { ProviderWrapper } from "./components/Provider";
 import { MovieDetails } from "./pages/MovieDetails";
+import { ErrorPage } from "./components";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +41,7 @@ const router = createBrowserRouter([
         path: "recommend",
         element: <Recommendation />,
       },
+      { element: <ErrorPage />, path: "*" },
     ],
   },
 ]);
