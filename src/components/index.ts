@@ -13,6 +13,7 @@ import { ProviderWrapper } from "./Provider";
 import { SortBtnByOrder } from "./SortBtnByOrder";
 import { SortButtons } from "./SortButtons";
 import { ErrorPage } from "./404/ErrorPage";
+import { SearchBar } from "./SearchBar";
 
 export {
   CastInfo,
@@ -30,4 +31,5 @@ export {
   SortBtnByOrder,
   SortButtons,
   ErrorPage,
+  SearchBar,
 };

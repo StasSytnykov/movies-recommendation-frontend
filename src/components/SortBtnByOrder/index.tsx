@@ -25,7 +25,7 @@ export const SortBtnByOrder = ({ sortedByType, onOrderTypeChange }: Props) => {
             })
       }
     >
-      <Button variant="contained" onClick={onOrderTypeChange}>
+      <Button variant="contained" size="small" onClick={onOrderTypeChange}>
         <SouthIcon sx={{ opacity: sortedByType === "desc" ? 1 : 0.5 }} />
         <NorthIcon sx={{ opacity: sortedByType === "asc" ? 1 : 0.5 }} />
       </Button>

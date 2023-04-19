@@ -1,5 +1,5 @@
 import { Movies } from "./Movies";
 import { SelectedMoviesSection } from "./SelectedMovies";
-import { SortedBar } from "./SortedBar";
+import { AppBar } from "./AppBar";
 
-export { Movies, SelectedMoviesSection, SortedBar };
+export { Movies, SelectedMoviesSection, AppBar };

@@ -5,7 +5,7 @@ import Paper from "@mui/material/Paper";
 import { useMovies } from "../../hooks";
 import { SelectedMoviesSection } from "../../conteiners";
 import { Movies } from "../../conteiners/Movies";
-import { SortedBar } from "../../conteiners";
+import { AppBar } from "../../conteiners";
 import { BoxStyles, PaperStyles } from "./styles";
 
 export type SortedByType = "desc" | "asc";
@@ -47,7 +47,7 @@ export const Home = () => {
       <Grid container spacing={2}>
         <Grid xs={12}>
           <Paper sx={PaperStyles}>
-            <SortedBar
+            <AppBar
               sortedByType={sortedByType}
               onOrderTypeChange={onOrderTypeChange}
               sortedByQuery={sortedByQuery}
