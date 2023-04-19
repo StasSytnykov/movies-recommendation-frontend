@@ -4,6 +4,12 @@ import { grey } from "@mui/material/colors";
 
 const StyledCard = styled(Card)(({ theme }) => ({
   position: "relative",
+  transition:
+    "transform 300ms ease-in-out 0s, box-shadow 500ms ease-in-out 0s, border-radius 500ms ease-in-out 0s",
+  "&:hover": {
+    transform: "scale(1.05)",
+    boxShadow: "rgba(0, 0, 0, 0.3) 10px 10px 8px 2px",
+  },
   [theme.breakpoints.down("sm")]: {
     display: "flex",
   },
