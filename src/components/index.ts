@@ -1,7 +1,7 @@
 import { Navigation } from "./Navigation";
 import { MovieCard } from "./MovieCard";
 import { MovieCardSelected } from "./MovieCardSelected";
-import { BasicPagination } from "./Pagination";
+import { BasicPagination } from "./BasicPagination";
 import { ShareModal } from "./ShareModal";
 import { CastInfo } from "./Cast";
 import { ConfirmFilmInput } from "./ConfirmFilmInput";

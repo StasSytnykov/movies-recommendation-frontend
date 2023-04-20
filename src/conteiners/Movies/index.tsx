@@ -4,8 +4,8 @@ import Grid from "@mui/material/Unstable_Grid2";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
-import { MovieCard } from "../../components/MovieCard";
-import { BasicPagination } from "../../components/Pagination";
+import { MovieCard } from "../../components";
+import { BasicPagination } from "../../components";
 import { SORTED_MOVIES_QUERY } from "./queries";
 import { SortedByType } from "../../pages/Home";
 import {
