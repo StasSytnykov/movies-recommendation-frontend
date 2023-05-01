@@ -45,7 +45,7 @@ export const ConfirmFilmInput = ({ onSubmit }: Props) => {
               )}
             />
 
-            <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
+            <IconButton type="submit" sx={{ p: "10px" }} aria-label="share">
               <ShareIcon color="primary" />
             </IconButton>
           </Paper>
