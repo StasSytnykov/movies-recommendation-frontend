@@ -8,12 +8,12 @@ import { MovieCard } from "../../components";
 import { BasicPagination } from "../../components";
 import { SORTED_MOVIES_QUERY } from "./queries";
 import { SortedByType } from "../../pages/Home";
+import { ErrorPage } from "../../components";
 import {
   ContatinerThumbStyles,
   BoxStyles,
   PaperStyles,
   StyledGrid,
-  BoxStylesInGrid,
   GridStyles,
   ThumbPaginationStyles,
 } from "./styles";
@@ -65,7 +65,7 @@ export const Movies = ({
         <Paper sx={PaperStyles}>
           <StyledGrid container spacing={2}>
             {error ? (
-              <Box sx={BoxStylesInGrid}>Page not found</Box>
+              <ErrorPage />
             ) : (
               data.moviesBySortedQuery.results.map((movie: IMovie) => (
                 <Grid key={movie.id} sm={4} lg={3} sx={GridStyles}>

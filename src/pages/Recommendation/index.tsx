@@ -6,6 +6,7 @@ import { MOVIES_BY_IDS } from "./queries";
 import Grid from "@mui/material/Unstable_Grid2";
 import { MovieCard } from "../../components";
 import { IMovie } from "../../conteiners/Movies";
+import { ErrorPage } from "../../components";
 import { StyledGrid } from "../../conteiners/Movies/styles";
 import { AppContext } from "../../context";
 import { Loader } from "../../components";
@@ -43,7 +44,7 @@ export const Recommendation = () => {
     });
   }, [searchParams, contextDispatch]);
 
-  if (error) return <div>Error</div>;
+  if (error) return <ErrorPage />;
 
   return (
     <>

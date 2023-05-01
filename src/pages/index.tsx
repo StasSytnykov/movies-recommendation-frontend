@@ -1,5 +1,5 @@
-import { Settings } from "./Settings";
+import { SearchMovies } from "./SearchMovies";
 import { Home } from "./Home";
 import { Recommendation } from "./Recommendation";
 
-export { Settings, Home, Recommendation };
+export { SearchMovies, Home, Recommendation };

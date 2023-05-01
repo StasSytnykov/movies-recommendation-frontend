@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { CssBaseline } from "@mui/material";
 import App from "./App";
-import { Settings, Home, Recommendation } from "./pages";
+import { SearchMovies, Home, Recommendation } from "./pages";
 import { AppContextProvider } from "./context";
 import { ProviderWrapper } from "./components/Provider";
 import { MovieDetails } from "./pages/MovieDetails";
@@ -30,8 +30,8 @@ const router = createBrowserRouter([
         element: <MovieDetails />,
       },
       {
-        path: "settings",
-        element: <Settings />,
+        path: "search/*",
+        element: <SearchMovies />,
       },
       {
         path: "recommend/*",

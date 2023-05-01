@@ -6,6 +6,7 @@ import { MOVIE_DETAILS } from "./queries";
 import { MovieInformation } from "../../components";
 import { CastInfo } from "../../components";
 import { Loader } from "../../components";
+import { ErrorPage } from "../../components";
 import { BoxStyles } from "./styles";
 
 export const MovieDetails = () => {
@@ -20,7 +21,7 @@ export const MovieDetails = () => {
     setMovieId(id ? id : "");
   }, [searchParams]);
 
-  if (error) return <div>Error</div>;
+  if (error) return <ErrorPage />;
 
   return (
     <>

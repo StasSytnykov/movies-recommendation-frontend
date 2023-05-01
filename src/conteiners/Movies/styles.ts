@@ -20,11 +20,6 @@ const StyledGrid = styled(Grid)(({ theme }) => ({
   },
 }));
 
-const BoxStylesInGrid = {
-  ...BoxStyles,
-  width: "100%",
-};
-
 const GridStyles = { width: "100%" };
 
 const ThumbPaginationStyles = { p: 1 };
@@ -34,7 +29,6 @@ export {
   BoxStyles,
   PaperStyles,
   StyledGrid,
-  BoxStylesInGrid,
   GridStyles,
   ThumbPaginationStyles,
 };
