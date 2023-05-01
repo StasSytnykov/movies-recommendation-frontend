@@ -3,12 +3,6 @@ import { styled } from "@mui/material/styles";
 
 const ContatinerThumbStyles = { flexGrow: 1 };
 
-const BoxStyles = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-};
-
 const PaperStyles = { mt: 1 };
 
 const StyledGrid = styled(Grid)(({ theme }) => ({
@@ -26,7 +20,6 @@ const ThumbPaginationStyles = { p: 1 };
 
 export {
   ContatinerThumbStyles,
-  BoxStyles,
   PaperStyles,
   StyledGrid,
   GridStyles,

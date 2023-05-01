@@ -51,7 +51,7 @@ export const ShareModal = ({ open, onCloseModal, url }: Props) => {
           <InputBase
             sx={InputBaseStyles}
             inputProps={{ "aria-label": "link" }}
-            defaultValue={url}
+            defaultValue={`${window.location.origin}${url}`}
             disabled={true}
           />
           <Divider sx={DividerStyles} orientation="vertical" />
@@ -64,7 +64,7 @@ export const ShareModal = ({ open, onCloseModal, url }: Props) => {
             <InsertLinkIcon color={"primary"} />
           </IconButton>
           <Divider sx={DividerStyles} orientation="vertical" />
-          <CopyToClipboard text={url}>
+          <CopyToClipboard text={`${window.location.origin}${url}`}>
             <IconButton
               onClick={() =>
                 notify(

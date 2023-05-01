@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
-import CircularProgress from "@mui/material/CircularProgress";
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import { MovieCard } from "../../components";
@@ -9,9 +8,9 @@ import { BasicPagination } from "../../components";
 import { SORTED_MOVIES_QUERY } from "./queries";
 import { SortedByType } from "../../pages/Home";
 import { ErrorPage } from "../../components";
+import { Loader } from "../../components";
 import {
   ContatinerThumbStyles,
-  BoxStyles,
   PaperStyles,
   StyledGrid,
   GridStyles,
@@ -58,9 +57,7 @@ export const Movies = ({
   return (
     <Box sx={ContatinerThumbStyles}>
       {loading ? (
-        <Box sx={BoxStyles}>
-          <CircularProgress />
-        </Box>
+        <Loader />
       ) : (
         <Paper sx={PaperStyles}>
           <StyledGrid container spacing={2}>
