@@ -12,9 +12,10 @@ export type SortedByType = "desc" | "asc";
 
 export const Home = () => {
   const [sortedByQuery, setSortedByQuery] = useState<string>("");
-
   const [sortedByType, setSortedByType] = useState<SortedByType>("desc");
+
   const { onMovieSelect, onMovieDelete, selectedMovies } = useMovies();
+
   const stringConverter = (query: string) => {
     switch (query) {
       case "Rating":

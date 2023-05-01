@@ -36,6 +36,7 @@ export const SelectedMoviesSection = ({
   const onCloseModal = () => {
     setUrl("");
   };
+
   return (
     <Grid xs={12} md={4}>
       <SelectedMovies>

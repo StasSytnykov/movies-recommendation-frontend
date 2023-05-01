@@ -1,5 +1,5 @@
-import { SearchMovies } from "./SearchMovies";
+import { SearchedMovies } from "./SearchedMovies";
 import { Home } from "./Home";
 import { Recommendation } from "./Recommendation";
 
-export { SearchMovies, Home, Recommendation };
+export { SearchedMovies, Home, Recommendation };

@@ -6,7 +6,7 @@ import { Form, Field } from "react-final-form";
 import { useIntl } from "react-intl";
 import { StyledPaper } from "./styles";
 import { searchFormValidation } from "./searchFormValidation";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 
 interface Values {
   moviesQuery: string;
@@ -14,10 +14,17 @@ interface Values {
 
 export const SearchBar = () => {
   const intl = useIntl();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onSubmit = (values: Values) => {
-    navigate(`search?query=${values.moviesQuery}`);
+    if (location.pathname === "/") {
+      navigate(`search?query=${values.moviesQuery}`);
+    } else {
+      setSearchParams({ query: values.moviesQuery });
+    }
   };
 
   return (
