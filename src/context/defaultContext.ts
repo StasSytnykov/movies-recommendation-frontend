@@ -4,15 +4,15 @@ import { getFromStorage, STORAGE_KEY } from "../utils/localStorage";
 
 type Locales = {
   ENGLISH: "en-us";
-  UKRAINIAN: "ua";
+  UKRAINIAN: "uk";
 };
 
 export const LOCALES: Locales = {
   ENGLISH: "en-us",
-  UKRAINIAN: "ua",
+  UKRAINIAN: "uk",
 };
 
-export type Tlocale = "en-us" | "ua";
+export type Tlocale = "en-us" | "uk";
 
 export interface DefaultContext {
   locale: Tlocale;

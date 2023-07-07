@@ -38,7 +38,7 @@ export const Recommendation = () => {
 
     contextDispatch({
       type: "setLocale",
-      locale: recommendLocale === "ua" ? recommendLocale : "en-us",
+      locale: recommendLocale === "uk" ? recommendLocale : "en-us",
     });
   }, [searchParams, contextDispatch]);
 
