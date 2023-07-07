@@ -7,6 +7,10 @@ export const saveToStorage = (name: "locale", data: Tlocale) => {
     return;
   }
 
+  if (!data) {
+    window.localStorage.setItem(name, JSON.stringify("en-us"));
+  }
+
   window.localStorage.setItem(name, JSON.stringify(data));
 };
 
