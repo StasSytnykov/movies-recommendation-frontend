@@ -12,6 +12,8 @@ const StyledCard = styled(Card)(({ theme }) => ({
   },
   [theme.breakpoints.down("sm")]: {
     display: "flex",
+    maxHeight: 150,
+    minHeight: 150,
   },
 }));
 
@@ -26,10 +28,13 @@ const StyledLink = styled(Link)(({ theme }) => ({
 const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
     width: 100,
+    minHeight: 150,
   },
   [theme.breakpoints.up("sm")]: {
     width: "100%",
     height: "100%",
+    minHeight: 330,
+    maxHeight: 330,
   },
 })) as typeof CardMedia;
 
