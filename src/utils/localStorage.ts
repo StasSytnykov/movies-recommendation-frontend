@@ -9,9 +9,9 @@ export const saveToStorage = (name: "locale", data: Tlocale) => {
 
   if (!data) {
     window.localStorage.setItem(name, JSON.stringify("en-us"));
+  } else {
+    window.localStorage.setItem(name, JSON.stringify(data));
   }
-
-  window.localStorage.setItem(name, JSON.stringify(data));
 };
 
 export const getFromStorage = (name: "locale") => {
@@ -20,7 +20,8 @@ export const getFromStorage = (name: "locale") => {
   }
 
   try {
-    return JSON.parse(window.localStorage.getItem(name) || "");
+    const data = window.localStorage.getItem(name);
+    return data ? JSON.parse(data) : null;
   } catch (e) {
     console.error(e);
 
