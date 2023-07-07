@@ -3,10 +3,12 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { MOVIE_DETAILS } from "./queries";
-import { MovieInformation } from "../../components";
-import { CastInfo } from "../../components";
-import { Loader } from "../../components";
-import { ErrorPage } from "../../components";
+import {
+  MovieInformation,
+  CastInfo,
+  Loader,
+  ErrorPage,
+} from "../../components";
 import { BoxStyles } from "./styles";
 
 export const MovieDetails = () => {
@@ -14,6 +16,7 @@ export const MovieDetails = () => {
   const [movieId, setMovieId] = useState<string>();
   const { loading, error, data } = useQuery(MOVIE_DETAILS, {
     variables: { id: movieId },
+    skip: !movieId,
   });
 
   useEffect(() => {
@@ -23,16 +26,16 @@ export const MovieDetails = () => {
 
   if (error) return <ErrorPage />;
 
-  return (
-    <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Box sx={BoxStyles}>
+  return loading ? (
+    <Loader />
+  ) : (
+    <Box sx={BoxStyles}>
+      {data && (
+        <>
           <MovieInformation movie={data.movieById} />
           <CastInfo cast={data.castByMovieId.cast} />
-        </Box>
+        </>
       )}
-    </>
+    </Box>
   );
 };

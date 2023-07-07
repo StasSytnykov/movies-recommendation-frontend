@@ -1,8 +1,8 @@
 import MenuItem from "@mui/material/MenuItem";
-import { Props } from "../../conteiners/AppBar";
 import { Box, FormControl, InputLabel } from "@mui/material";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useIntl } from "react-intl";
+import { Props } from "../../conteiners/AppBar";
 
 type PropsSortBtns = Pick<Props, "sortedByQuery">;
 

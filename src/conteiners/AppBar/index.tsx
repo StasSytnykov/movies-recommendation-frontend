@@ -4,7 +4,7 @@ import { SortedByType } from "../../pages/Home";
 import { StyledBox, BoxStylesInBox } from "./styles";
 import { SortBtnByOrder } from "../../components";
 import { SearchBar } from "../../components";
-import { useLangugaeChange } from "../../hooks/useLanguageChange";
+import { useLanguageChange } from "../../hooks/useLanguageChange";
 
 export interface Props {
   sortedByQuery: string;
@@ -20,7 +20,7 @@ export const AppBar = ({
   onOrderTypeChange,
 }: Props) => {
   const { sortedByPopularity, sortedByReleaseDate, sortedByRating } =
-    useLangugaeChange({ sortedByQuery, setSortedByQuery });
+    useLanguageChange({ sortedByQuery, setSortedByQuery });
 
   const handleChange = (event: SelectChangeEvent) => {
     setSortedByQuery(event.target.value as string);
@@ -28,8 +28,8 @@ export const AppBar = ({
 
   return (
     <StyledBox>
-      <SearchBar />
-      <Box sx={{ display: "flex" }}>
+      {/*<SearchBar />*/}
+      <Box sx={BoxStylesInBox}>
         <Box sx={BoxStylesInBox}>
           <SortButtons
             sortedByQuery={sortedByQuery}

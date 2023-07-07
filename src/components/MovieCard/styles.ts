@@ -30,8 +30,6 @@ const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
     width: "100%",
     height: "100%",
-    maxHeight: 330,
-    minHeight: 330,
   },
 })) as typeof CardMedia;
 

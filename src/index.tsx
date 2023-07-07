@@ -3,11 +3,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { CssBaseline } from "@mui/material";
 import App from "./App";
-import { SearchedMovies, Home, Recommendation } from "./pages";
+import { SearchedMovies, Home, Recommendation, MovieDetails } from "./pages";
 import { AppContextProvider } from "./context";
-import { ProviderWrapper } from "./components/Provider";
-import { MovieDetails } from "./pages/MovieDetails";
-import { ErrorPage } from "./components";
+import { ProviderWrapper, ErrorPage } from "./components";
 
 const router = createBrowserRouter([
   {

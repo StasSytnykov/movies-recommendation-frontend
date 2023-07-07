@@ -3,10 +3,10 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import { Typography } from "@mui/material";
 import { Form, Field } from "react-final-form";
+import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import { useIntl } from "react-intl";
 import { StyledPaper } from "./styles";
 import { searchFormValidation } from "./searchFormValidation";
-import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 
 interface Values {
   moviesQuery: string;
@@ -14,8 +14,7 @@ interface Values {
 
 export const SearchBar = () => {
   const intl = useIntl();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [_, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -67,6 +66,6 @@ export const SearchBar = () => {
           />
         </form>
       )}
-    ></Form>
+    />
   );
 };

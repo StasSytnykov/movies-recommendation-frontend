@@ -4,12 +4,10 @@ import Typography from "@mui/material/Typography";
 import { useQuery } from "@apollo/client";
 import { MOVIES_BY_IDS } from "./queries";
 import Grid from "@mui/material/Unstable_Grid2";
-import { MovieCard } from "../../components";
+import { MovieCard, ErrorPage, Loader } from "../../components";
 import { IMovie } from "../../conteiners/Movies";
-import { ErrorPage } from "../../components";
 import { StyledGrid } from "../../conteiners/Movies/styles";
 import { AppContext } from "../../context";
-import { Loader } from "../../components";
 import { TypographyStyles } from "./styles";
 
 export const Recommendation = () => {
@@ -40,7 +38,7 @@ export const Recommendation = () => {
 
     contextDispatch({
       type: "setLocale",
-      locale: recommendLocale === "uk" ? recommendLocale : "en-us",
+      locale: recommendLocale === "ua" ? recommendLocale : "en-us",
     });
   }, [searchParams, contextDispatch]);
 

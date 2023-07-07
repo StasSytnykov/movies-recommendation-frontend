@@ -3,19 +3,19 @@ import Stack from "@mui/material/Stack";
 import React from "react";
 
 interface Props {
-  onPageClick: (event: React.ChangeEvent<unknown>, page: number) => void;
+  onPaginationClick: (event: React.ChangeEvent<unknown>, page: number) => void;
   page: number;
 }
 
 const MAX_PAGES = 500;
 
-export const BasicPagination = ({ onPageClick, page }: Props) => {
+export const BasicPagination = ({ onPaginationClick, page }: Props) => {
   return (
     <Stack direction="row" justifyContent="center" alignItems="center">
       <Pagination
         count={MAX_PAGES}
         color="primary"
-        onChange={onPageClick}
+        onChange={onPaginationClick}
         page={page}
         size="small"
       />

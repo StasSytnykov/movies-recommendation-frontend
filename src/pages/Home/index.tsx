@@ -3,9 +3,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
 import Paper from "@mui/material/Paper";
 import { useMovies } from "../../hooks";
-import { SelectedMoviesSection } from "../../conteiners";
-import { Movies } from "../../conteiners/Movies";
-import { AppBar } from "../../conteiners";
+import { Movies, AppBar, SelectedMoviesSection } from "../../conteiners";
 import { BoxStyles, PaperStyles } from "./styles";
 
 export type SortedByType = "desc" | "asc";

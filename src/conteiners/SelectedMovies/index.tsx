@@ -1,13 +1,15 @@
+import { useContext, useState } from "react";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
-import { MovieCardSelected } from "../../components";
-import { IMovie } from "../Movies";
-import { ConfirmFilmInput } from "../../components";
-import { ShareModal } from "../../components";
-import { useContext, useState } from "react";
+import {
+  MovieCardSelected,
+  ShareModal,
+  ConfirmFilmInput,
+} from "../../components";
 import { AppContext } from "../../context";
 import { SelectedMovies, StackStyles, BoxStyles } from "./styles";
+import { IMovie } from "../Movies";
 
 interface Props {
   onMovieDelete: (id: number) => void;

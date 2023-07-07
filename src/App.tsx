@@ -41,21 +41,19 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <>
-        <Box
-          sx={{
-            backgroundColor: (theme) => theme.palette.grey[100],
-            height: "100vh",
-            overflow: "auto",
-          }}
-        >
-          <Navigation />
-          <Container maxWidth={"xl"}>
-            <Outlet />
-          </Container>
-        </Box>
-        <ToastContainer />
-      </>
+      <Box
+        sx={{
+          backgroundColor: (theme) => theme.palette.grey[100],
+          height: "100vh",
+          overflow: "auto",
+        }}
+      >
+        <Navigation />
+        <Container maxWidth={"xl"}>
+          <Outlet />
+        </Container>
+      </Box>
+      <ToastContainer />
     </ApolloProvider>
   );
 }

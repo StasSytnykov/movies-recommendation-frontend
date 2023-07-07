@@ -2,15 +2,16 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import { useQuery } from "@apollo/client";
-import { useState } from "react";
-import { MovieCard } from "../../components";
-import { BasicPagination } from "../../components";
+import { ChangeEvent, useState } from "react";
+import {
+  BasicPagination,
+  ErrorPage,
+  Loader,
+  MovieCard,
+} from "../../components";
 import { SORTED_MOVIES_QUERY } from "./queries";
 import { SortedByType } from "../../pages/Home";
-import { ErrorPage } from "../../components";
-import { Loader } from "../../components";
 import {
-  ContatinerThumbStyles,
   PaperStyles,
   StyledGrid,
   GridStyles,
@@ -50,32 +51,26 @@ export const Movies = ({
     },
   });
 
-  const onPageClick = (event: React.ChangeEvent<unknown>, page: number) => {
+  const onPaginationClick = (event: ChangeEvent<unknown>, page: number) => {
     setPage(page);
   };
 
-  return (
-    <Box sx={ContatinerThumbStyles}>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Paper sx={PaperStyles}>
-          <StyledGrid container spacing={2}>
-            {error ? (
-              <ErrorPage />
-            ) : (
-              data.moviesBySortedQuery.results.map((movie: IMovie) => (
-                <Grid key={movie.id} sm={4} lg={3} sx={GridStyles}>
-                  <MovieCard movie={movie} onMovieSelect={onMovieSelect} />
-                </Grid>
-              ))
-            )}
-          </StyledGrid>
-          <Box sx={ThumbPaginationStyles}>
-            <BasicPagination onPageClick={onPageClick} page={page} />
-          </Box>
-        </Paper>
-      )}
-    </Box>
+  if (error) return <ErrorPage />;
+
+  return loading ? (
+    <Loader />
+  ) : (
+    <Paper sx={PaperStyles}>
+      <StyledGrid container spacing={2}>
+        {data.moviesBySortedQuery.results.map((movie: IMovie) => (
+          <Grid key={movie.id} sm={3} lg={2.5} sx={GridStyles}>
+            <MovieCard movie={movie} onMovieSelect={onMovieSelect} />
+          </Grid>
+        ))}
+      </StyledGrid>
+      <Box sx={ThumbPaginationStyles}>
+        <BasicPagination onPaginationClick={onPaginationClick} page={page} />
+      </Box>
+    </Paper>
   );
 };
