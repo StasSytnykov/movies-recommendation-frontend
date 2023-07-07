@@ -32,12 +32,7 @@ export const SelectedMoviesSection = ({
     const link = `/recommend?title=${values.listName}&ids=${ids.join(
       ","
     )}&language=${locale}`;
-
-    if (process.env.NODE_ENV === "production") {
-      setUrl(window.location.origin + link);
-    } else {
-      setUrl(link);
-    }
+    setUrl(link);
   };
 
   const onCloseModal = () => {
